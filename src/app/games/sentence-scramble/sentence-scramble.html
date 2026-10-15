@@ -1,0 +1,350 @@
+<div class="scramble-app-root">
+
+  <!-- ========================================================
+       1. SETUP SCREEN
+       ======================================================== -->
+  @if (!gameStarted && !gameOver) {
+  <div class="setup-container">
+    <div class="setup-card">
+      <div class="setup-header">
+        <div class="setup-icon-badge">
+          <span class="material-symbols-outlined text-[28px]">sort_by_alpha</span>
+        </div>
+        <h1 class="setup-title">Sentence Scramble</h1>
+        <p class="setup-subtitle">Make English sentences by arranging words in the correct order.</p>
+      </div>
+
+      <!-- WORD INPUT -->
+      <div class="form-group">
+        <label for="wordInput" class="form-label">
+          <span class="material-symbols-outlined text-[16px]">edit</span>
+          Enter a word
+        </label>
+        <input id="wordInput" type="text" class="text-input" [(ngModel)]="wordInput"
+          (ngModelChange)="onWordInputChange()" placeholder="Örn: school, apple, coffee, work..." autocomplete="off" />
+      </div>
+
+      <!-- LEVEL SELECTION -->
+      <div class="form-group">
+        <span class="form-label">
+          <span class="material-symbols-outlined text-[16px]">bar_chart</span>
+          Select level
+        </span>
+        <div class="level-grid">
+          @for (level of levels; track level) {
+          <button type="button" class="level-card-btn" [class.selected]="selectedLevel === level"
+            (click)="selectLevel(level)">
+            <span class="level-code">{{ level }}</span>
+            <span class="level-sub">
+              @if (level === 'A1') { Beginner }
+              @else if (level === 'A2') { Elementary }
+              @else if (level === 'B1') { Intermediate }
+              @else { Upper Int. }
+            </span>
+          </button>
+          }
+        </div>
+      </div>
+
+      <!-- TOPIC SELECTION -->
+      <div class="form-group">
+        <span class="form-label">
+          <span class="material-symbols-outlined text-[16px]">category</span>
+          Select topic
+        </span>
+        <div class="topic-grid">
+          @for (topic of topics; track topic) {
+          <button type="button" class="topic-chip-btn" [class.selected]="selectedTopic === topic"
+            (click)="selectTopic(topic)">
+            {{ topic }}
+          </button>
+          }
+        </div>
+      </div>
+
+      <!-- NO SENTENCE FOUND NOTICE -->
+      @if (noSentenceFound) {
+      <div class="no-sentence-banner">
+        <span class="material-symbols-outlined text-[22px] text-amber-600">search_off</span>
+        <div>
+          <p class="font-bold text-amber-900">No suitable sentence could be found for this word.</p>
+          <p class="text-xs text-amber-800 mt-0.5">
+            For Example: <strong>school</strong>, <strong>book</strong>, <strong>apple</strong>,
+            <strong>coffee</strong>, <strong>work</strong>, <strong>travel</strong>
+          </p>
+        </div>
+      </div>
+      }
+
+      <!-- START BUTTON -->
+      <button type="button" class="start-game-btn" [disabled]="!wordInput.trim() || !selectedLevel || isGenerating"
+        (click)="startNewGame()">
+        @if (isGenerating) {
+        <span class="loading-spin"></span>
+        <span>Searching Sentence...</span>
+        } @else {
+        <span>START GAME</span>
+        <span class="material-symbols-outlined text-[20px]">play_arrow</span>
+        }
+      </button>
+    </div>
+  </div>
+  }
+
+  <!-- ========================================================
+       2. ACTIVE GAME SCREEN (STITCH INTEGRATED DESIGN)
+       ======================================================== -->
+  @if (gameStarted && !gameOver) {
+  <div class="game-view-wrapper">
+
+    <!-- TOP GAME HEADER -->
+    <header class="game-header-bar">
+      <!-- Heart Lives Badge -->
+      <div class="lives-badge">
+        <span class="material-symbols-outlined heart-icon" style="font-variation-settings: 'FILL' 1;">favorite</span>
+        <span class="lives-number">{{ lives }}</span>
+      </div>
+
+      <!-- Center Tracker & Progress bar -->
+      <div class="center-progress-tracker">
+        <div class="tracker-labels">
+          <span class="progress-fraction">{{ currentQuestionIndex + 1 }} / {{ totalQuestions }}</span>
+          <span class="level-indicator">Level {{ currentQuestionIndex + 1 }} • {{ selectedLevel }}</span>
+        </div>
+        <div class="progress-bar-track">
+          <div class="progress-bar-fill" [style.width.%]="progressPercentage">
+            <div class="progress-bar-shine"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dismiss / Close Button -->
+      <button type="button" class="close-lesson-btn" aria-label="Dersi kapat" (click)="onBackToSetup()">
+        <span class="material-symbols-outlined text-[20px]">close</span>
+      </button>
+    </header>
+
+    <!-- MAIN SCROLLABLE CONTENT CANVAS -->
+    <main class="game-content-canvas">
+
+      <!-- 1. TARGET SENTENCE CARD (Turkish prompt) -->
+      <section class="target-sentence-card">
+        <div class="card-top-row">
+          <div class="badge-pill">
+            <span class="material-symbols-outlined text-[15px] text-primary">translate</span>
+            <span class="badge-text">{{ selectedTopic }}</span>
+          </div>
+
+          <!-- Audio Pronounce Trigger with sound wave icon -->
+          <button type="button" class="audio-wave-btn" [class.audio-active]="isAudioPlaying" aria-label="Cümleyi dinle"
+            (click)="playAudio()">
+            <span class="material-symbols-outlined text-[20px]">graphic_eq</span>
+          </button>
+        </div>
+
+        <!-- Target Turkish Prompt -->
+        <div class="target-prompt-container">
+          <h1 class="turkish-prompt-heading">{{ currentSentence?.translation }}</h1>
+        </div>
+
+        <!-- Grammar / Context Helper -->
+        <div class="insight-row">
+          <span class="material-symbols-outlined text-[15px] text-primary shrink-0">info</span>
+          <span class="insight-text">
+            Target word: <strong>{{ currentSentence?.word }}</strong> • Level: <strong>{{ currentSentence?.level
+              }}</strong>
+          </span>
+        </div>
+      </section>
+
+      <!-- 2. "YOUR SENTENCE" RECEPTACLE AREA -->
+      <section class="sentence-receptacle-card">
+        <!-- Header Bar inside Your Sentence -->
+        <div class="receptacle-header">
+          <div class="header-left">
+            <span class="receptacle-title">YOUR SENTENCE</span>
+            <span class="tokens-badge">{{ selectedTokens.length }} {{ selectedTokens.length === 1 ? 'word' : 'words' }}
+              placed</span>
+          </div>
+
+          <div class="utility-actions">
+            <button type="button" class="utility-btn" [disabled]="selectedTokens.length === 0" (click)="undo()"
+              title="Undo">
+              <span class="material-symbols-outlined text-[15px]">undo</span>
+              <span>Undo</span>
+            </button>
+            <button type="button" class="utility-btn utility-clear" [disabled]="selectedTokens.length === 0"
+              (click)="clearAnswer()" title="Clear">
+              <span class="material-symbols-outlined text-[15px]">restart_alt</span>
+              <span>Clear</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Constructed Token Slot Flow / Chips Area -->
+        <div class="assembly-dropzone">
+          @if (selectedTokens.length === 0) {
+          <div class="dropzone-empty-placeholder">
+            <span class="material-symbols-outlined text-[18px] text-primary/60">touch_app</span>
+            <span>Touch the words below to form the sentence</span>
+          </div>
+          } @else {
+          <div class="chips-flex-wrap">
+            @for (token of selectedTokens; track token.id; let idx = $index) {
+            <button type="button" class="placed-chip chip-tactile"
+              [class.chip-correct]="token.isEvaluated && token.isCorrect"
+              [class.chip-incorrect]="token.isEvaluated && !token.isCorrect" [class.chip-default]="!token.isEvaluated"
+              (click)="removeToken(token)" [title]="token.text + ' (touch to remove)'">
+              <span class="chip-word">{{ token.text }}</span>
+              @if (token.isEvaluated) {
+              @if (token.isCorrect) {
+              <span class="material-symbols-outlined chip-status-icon text-emerald-600">check</span>
+              } @else {
+              <span class="material-symbols-outlined chip-status-icon text-rose-600">close</span>
+              }
+              } @else {
+              <span class="material-symbols-outlined chip-remove-icon">close</span>
+              }
+            </button>
+            }
+          </div>
+          }
+        </div>
+
+        <!-- Target Answer Reveal Banner (Revealed via 'Doğru cevabı göster') -->
+        @if (isTargetRevealed && currentSentence) {
+        <div class="revealed-answer-banner">
+          <div class="revealed-header">
+            <span class="revealed-title">
+              <span class="material-symbols-outlined text-[14px]">check_circle</span>
+              Target English:
+            </span>
+            <button type="button" class="revealed-close-btn" aria-label="Close" (click)="closeRevealedAnswer()">
+              <span class="material-symbols-outlined text-[16px]">close</span>
+            </button>
+          </div>
+          <p class="revealed-sentence-text">{{ currentSentence.sentence }}</p>
+        </div>
+        }
+
+        <!-- Baseline slot guide line -->
+        <div class="baseline-slot-guide"></div>
+      </section>
+
+      <!-- 3. TWO PROMINENT ACTION BUTTONS -->
+      <div class="secondary-actions-row">
+        <!-- Button A: 'Doğru cevabı göster' -->
+        <button type="button" class="action-btn outline-tactile show-answer-btn"
+          [class.show-answer-active]="isTargetRevealed" (click)="toggleShowCorrectAnswer()">
+          <span class="material-symbols-outlined text-[20px] text-primary shrink-0">visibility</span>
+          <span>Show Answer</span>
+        </button>
+
+        <!-- Button B: 'Hint' -->
+        <button type="button" class="action-btn lavender-tactile hint-action-btn" (click)="giveHint()">
+          <span class="material-symbols-outlined text-[20px] text-primary shrink-0">lightbulb</span>
+          <span>Hint</span>
+        </button>
+      </div>
+
+      <!-- 4. WORD BANK (SCRAMBLED TOKENS) -->
+      <section class="word-bank-card">
+        <div class="bank-header-row">
+          <span class="bank-header-label">
+            <span class="material-symbols-outlined text-[16px] text-primary">apps</span>
+            Word Bank
+          </span>
+          <span class="bank-choices-count">{{ availableTokensCount }} options</span>
+        </div>
+
+        <div class="bank-tokens-cluster">
+          @for (token of shuffledTokens; track token.id) {
+          @if (token.selected) {
+          <div class="bank-ghost-slot">
+            {{ token.text }}
+          </div>
+          } @else {
+          <button type="button" class="bank-chip-btn chip-tactile" (click)="selectToken(token)">
+            {{ token.text }}
+          </button>
+          }
+          }
+        </div>
+      </section>
+
+    </main>
+
+    <!-- 5. ANCHORED ACTION FOOTER (Sticky Evaluator Tray) -->
+    <footer class="anchored-action-footer">
+      <!-- Dynamic Feedback Banner (Success / Error / Warning) -->
+      @if (feedbackType !== 'none') {
+      <div class="feedback-banner-tray" [class.tray-success]="feedbackType === 'success'"
+        [class.tray-error]="feedbackType === 'error'" [class.tray-warning]="feedbackType === 'warning'">
+        <div class="feedback-inner-row">
+          <div class="feedback-badge-wrap">
+            @if (feedbackType === 'success') {
+            <div class="symbol-badge badge-success">✓</div>
+            } @else if (feedbackType === 'error') {
+            <div class="symbol-badge badge-error">✕</div>
+            } @else {
+            <div class="symbol-badge badge-warning">!</div>
+            }
+            <span class="feedback-text-message">{{ feedbackMessage }}</span>
+          </div>
+          <span class="material-symbols-outlined feedback-icon">
+            @if (feedbackType === 'success') { stars }
+            @else if (feedbackType === 'error') { info }
+            @else { warning }
+          </span>
+        </div>
+      </div>
+      }
+
+      <!-- Main Footer Action Tray -->
+      <div class="footer-cta-wrapper">
+        <button type="button" class="main-cta-button" [class.primary-tactile]="!isEvaluationComplete"
+          [class.success-tactile]="isEvaluationComplete" [class.btn-success-state]="isEvaluationComplete"
+          (click)="checkAnswer()">
+          <span>
+            {{ isEvaluationComplete ? (currentQuestionIndex >= totalQuestions - 1 ? 'SONUÇLARI GÖR' : 'DEVAM ET') :
+            'Cevabı Kontrol Et' }}
+          </span>
+          <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+        </button>
+      </div>
+    </footer>
+
+  </div>
+  }
+
+  <!-- ========================================================
+       3. FINAL RESULT SCREEN
+       ======================================================== -->
+  @if (gameOver) {
+  <div class="game-over-container">
+    <div class="game-over-card">
+      <div class="trophy-badge">🏆</div>
+      <h1 class="over-title">Lesson Completed!</h1>
+      <p class="over-subtitle">You have successfully completed the sentence exercise.</p>
+
+      <div class="score-summary-card">
+        <div class="summary-metric">
+          <span class="metric-label">Total Score</span>
+          <span class="metric-value highlight">{{ score }}</span>
+        </div>
+        <div class="metric-separator"></div>
+        <div class="summary-metric">
+          <span class="metric-label"> Correct Sentences</span>
+          <span class="metric-value">{{ correctAnswersCount }} / {{ totalQuestions }}</span>
+        </div>
+      </div>
+
+      <button type="button" class="play-again-button primary-tactile" (click)="playAgain()">
+        <span>PLAY AGAIN</span>
+        <span class="material-symbols-outlined text-[20px]">refresh</span>
+      </button>
+    </div>
+  </div>
+  }
+
+</div>

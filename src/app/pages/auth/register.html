@@ -1,0 +1,72 @@
+
+<div class="auth-page">
+  <section class="auth-card">
+    <a routerLink="/" class="brand">LinguaPlay</a>
+
+    <p class="eyebrow">ÖĞRENMEYE BAŞLA</p>
+    <h1>Hesabını oluştur</h1>
+    <p class="subtitle">
+      Oyunlarını oyna, ilerlemeni takip et ve puan kazan.
+    </p>
+
+    <form (ngSubmit)="register()" #registerForm="ngForm">
+      <label for="name">Adın</label>
+      <input
+        id="name"
+        name="name"
+        type="text"
+        [(ngModel)]="name"
+        placeholder="Adını gir"
+        autocomplete="name"
+        required
+      />
+
+      <label for="email">E-posta</label>
+      <input
+        id="email"
+        name="email"
+        type="email"
+        [(ngModel)]="email"
+        placeholder="ornek@mail.com"
+        autocomplete="email"
+        required
+      />
+
+      <label for="password">Şifre</label>
+      <input
+        id="password"
+        name="password"
+        type="password"
+        [(ngModel)]="password"
+        placeholder="En az 6 karakter"
+        autocomplete="new-password"
+        minlength="6"
+        required
+      />
+
+      <label for="confirmPassword">Şifreyi tekrar gir</label>
+      <input
+        id="confirmPassword"
+        name="confirmPassword"
+        type="password"
+        [(ngModel)]="confirmPassword"
+        placeholder="Şifreni tekrar gir"
+        autocomplete="new-password"
+        required
+      />
+
+      @if (errorMessage) {
+        <p class="error-message" role="alert">{{ errorMessage }}</p>
+      }
+
+      <button type="submit" [disabled]="loading || registerForm.invalid">
+        {{ loading ? 'Hesap oluşturuluyor...' : 'Kayıt ol' }}
+      </button>
+    </form>
+
+    <p class="switch-auth">
+      Zaten hesabın var mı?
+      <a routerLink="/login">Giriş yap</a>
+    </p>
+  </section>
+</div>

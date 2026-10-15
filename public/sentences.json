@@ -1,0 +1,1578 @@
+[
+  {
+    "id": 1,
+    "word": "school",
+    "level": "A1",
+    "topic": "School",
+    "sentence": "I study English at school.",
+    "translation": "Okulda İngilizce çalışırım."
+  },
+  {
+    "id": 2,
+    "word": "school",
+    "level": "A1",
+    "topic": "School",
+    "sentence": "Our teacher arrives at school early.",
+    "translation": "Öğretmenimiz okula erken gelir."
+  },
+  {
+    "id": 3,
+    "word": "school",
+    "level": "A1",
+    "topic": "Daily Life",
+    "sentence": "I go to school every day.",
+    "translation": "Her gün okula giderim."
+  },
+  {
+    "id": 4,
+    "word": "school",
+    "level": "A1",
+    "topic": "Daily Life",
+    "sentence": "The children walk to school together.",
+    "translation": "Çocuklar okula birlikte yürürler."
+  },
+  {
+    "id": 5,
+    "word": "book",
+    "level": "A1",
+    "topic": "School",
+    "sentence": "I read an interesting book in class.",
+    "translation": "Derste ilginç bir kitap okurum."
+  },
+  {
+    "id": 6,
+    "word": "book",
+    "level": "A1",
+    "topic": "Daily Life",
+    "sentence": "She opens her book every evening.",
+    "translation": "O, her akşam kitabını açar."
+  },
+  {
+    "id": 7,
+    "word": "friend",
+    "level": "A1",
+    "topic": "School",
+    "sentence": "My friend helps me with my homework.",
+    "translation": "Arkadaşım ödevimde bana yardım eder."
+  },
+  {
+    "id": 8,
+    "word": "teacher",
+    "level": "A1",
+    "topic": "School",
+    "sentence": "The teacher writes new words on the board.",
+    "translation": "Öğretmen tahtaya yeni kelimeler yazar."
+  },
+  {
+    "id": 9,
+    "word": "learn",
+    "level": "A1",
+    "topic": "School",
+    "sentence": "We learn many new things every week.",
+    "translation": "Her hafta birçok yeni şey öğreniriz."
+  },
+  {
+    "id": 10,
+    "word": "study",
+    "level": "A1",
+    "topic": "School",
+    "sentence": "Students study quiet in the library.",
+    "translation": "Öğrenciler kütüphanede sessizce ders çalışır."
+  },
+  {
+    "id": 11,
+    "word": "pen",
+    "level": "A1",
+    "topic": "School",
+    "sentence": "I write my name with a blue pen.",
+    "translation": "Adımı mavi bir tükenmez kalemle yazarım."
+  },
+  {
+    "id": 12,
+    "word": "class",
+    "level": "A1",
+    "topic": "School",
+    "sentence": "Our morning class starts at nine oclock.",
+    "translation": "Sabah dersimiz saat dokuzda başlar."
+  },
+  {
+    "id": 13,
+    "word": "school",
+    "level": "A2",
+    "topic": "School",
+    "sentence": "We visited a modern science lab at school yesterday.",
+    "translation": "Dün okulda modern bir fen laboratuvarını ziyaret ettik."
+  },
+  {
+    "id": 14,
+    "word": "school",
+    "level": "A2",
+    "topic": "School",
+    "sentence": "My brother joined the soccer team at school.",
+    "translation": "Erkek kardeşim okuldaki futbol takımına katıldı."
+  },
+  {
+    "id": 15,
+    "word": "book",
+    "level": "A2",
+    "topic": "School",
+    "sentence": "He borrowed three history books from the library.",
+    "translation": "Kütüphaneden üç tarih kitabı ödünç aldı."
+  },
+  {
+    "id": 16,
+    "word": "project",
+    "level": "A2",
+    "topic": "School",
+    "sentence": "We are working on an exciting science project.",
+    "translation": "Heyecan verici bir bilim projesi üzerinde çalışıyoruz."
+  },
+  {
+    "id": 17,
+    "word": "homework",
+    "level": "A2",
+    "topic": "School",
+    "sentence": "She finished her math homework before dinner.",
+    "translation": "Akşam yemeğinden önce matematik ödevini bitirdi."
+  },
+  {
+    "id": 18,
+    "word": "exam",
+    "level": "A2",
+    "topic": "School",
+    "sentence": "The students prepared well for the English exam.",
+    "translation": "Öğrenciler İngilizce sınavına iyi hazırlandılar."
+  },
+  {
+    "id": 19,
+    "word": "school",
+    "level": "B1",
+    "topic": "School",
+    "sentence": "Our high school organized an international exchange program this semester.",
+    "translation": "Lisemiz bu dönem uluslararası bir değişim programı düzenledi."
+  },
+  {
+    "id": 20,
+    "word": "study",
+    "level": "B1",
+    "topic": "School",
+    "sentence": "Students who study regularly achieve higher academic results.",
+    "translation": "Düzenli çalışan öğrenciler daha yüksek akademik sonuçlar elde eder."
+  },
+  {
+    "id": 21,
+    "word": "presentation",
+    "level": "B1",
+    "topic": "School",
+    "sentence": "She gave an excellent presentation about renewable energy in biology class.",
+    "translation": "Biyoloji dersinde yenilenebilir enerji hakkında mükemmel bir sunum yaptı."
+  },
+  {
+    "id": 22,
+    "word": "research",
+    "level": "B1",
+    "topic": "School",
+    "sentence": "We conducted research on local history for our final assignment.",
+    "translation": "Bitirme ödevimiz için yerel tarih üzerine araştırma yaptık."
+  },
+  {
+    "id": 23,
+    "word": "language",
+    "level": "B1",
+    "topic": "School",
+    "sentence": "Learning a second language improves memory and cognitive skills.",
+    "translation": "İkinci bir dil öğrenmek hafızayı ve bilişsel becerileri geliştirir."
+  },
+  {
+    "id": 24,
+    "word": "school",
+    "level": "B2",
+    "topic": "School",
+    "sentence": "The secondary school implemented an innovative digital curriculum to enhance student engagement.",
+    "translation": "Ortaokul, öğrenci katılımını artırmak için yenilikçi bir dijital müfredat uyguladı."
+  },
+  {
+    "id": 25,
+    "word": "education",
+    "level": "B2",
+    "topic": "School",
+    "sentence": "Higher education provides critical analytical skills necessary for future career advancement.",
+    "translation": "Yükseköğrenim, gelecekteki kariyer gelişimi için gerekli olan eleştirel analitik becerileri sağlar."
+  },
+  {
+    "id": 26,
+    "word": "academic",
+    "level": "B2",
+    "topic": "School",
+    "sentence": "The academic committee evaluated the proposed revisions to the syllabus.",
+    "translation": "Akademik kurul ders izlencesine yönelik önerilen revizyonları değerlendirdi."
+  },
+  {
+    "id": 27,
+    "word": "curriculum",
+    "level": "B2",
+    "topic": "School",
+    "sentence": "The revised curriculum emphasizes practical experience alongside theoretical knowledge.",
+    "translation": "Revize edilen müfredat, teorik bilginin yanı sıra pratik deneyimi de vurgulamaktadır."
+  },
+  {
+    "id": 28,
+    "word": "coffee",
+    "level": "A1",
+    "topic": "Daily Life",
+    "sentence": "I drink warm coffee every morning.",
+    "translation": "Her sabah ılık kahve içerim."
+  },
+  {
+    "id": 29,
+    "word": "coffee",
+    "level": "A1",
+    "topic": "Daily Life",
+    "sentence": "My mother makes delicious black coffee.",
+    "translation": "Annem lezzetli sade kahve yapar."
+  },
+  {
+    "id": 30,
+    "word": "water",
+    "level": "A1",
+    "topic": "Daily Life",
+    "sentence": "Drink a glass of cold water before breakfast.",
+    "translation": "Kahvaltıdan önce bir bardak soğuk su için."
+  },
+  {
+    "id": 31,
+    "word": "morning",
+    "level": "A1",
+    "topic": "Daily Life",
+    "sentence": "The sun rises early in the warm morning.",
+    "translation": "Güneş ılık sabahta erken doğar."
+  },
+  {
+    "id": 32,
+    "word": "home",
+    "level": "A1",
+    "topic": "Daily Life",
+    "sentence": "We return home together in the afternoon.",
+    "translation": "Öğleden sonra eve birlikte döneriz."
+  },
+  {
+    "id": 33,
+    "word": "family",
+    "level": "A1",
+    "topic": "Daily Life",
+    "sentence": "My family has dinner at seven oclock.",
+    "translation": "Ailem saat yedide akşam yemeği yer."
+  },
+  {
+    "id": 34,
+    "word": "sleep",
+    "level": "A1",
+    "topic": "Daily Life",
+    "sentence": "Children need eight hours of sleep each night.",
+    "translation": "Çocukların her gece sekiz saat uykuya ihtiyacı vardır."
+  },
+  {
+    "id": 35,
+    "word": "city",
+    "level": "A1",
+    "topic": "Daily Life",
+    "sentence": "I live in a peaceful small city.",
+    "translation": "Huzurlu küçük bir şehirde yaşıyorum."
+  },
+  {
+    "id": 36,
+    "word": "park",
+    "level": "A1",
+    "topic": "Daily Life",
+    "sentence": "We take a walk in the green park.",
+    "translation": "Yeşil parkta yürüyüş yaparız."
+  },
+  {
+    "id": 37,
+    "word": "friend",
+    "level": "A1",
+    "topic": "Daily Life",
+    "sentence": "I meet my best friend after lunch.",
+    "translation": "Öğle yemeğinden sonra en iyi arkadaşımla buluşurum."
+  },
+  {
+    "id": 38,
+    "word": "coffee",
+    "level": "A2",
+    "topic": "Daily Life",
+    "sentence": "She usually orders iced coffee with milk on hot days.",
+    "translation": "Sıcak günlerde genellikle sütlü buzlu kahve sipariş eder."
+  },
+  {
+    "id": 39,
+    "word": "routine",
+    "level": "A2",
+    "topic": "Daily Life",
+    "sentence": "My morning routine includes stretching and a healthy breakfast.",
+    "translation": "Sabah rutinim esneme hareketleri ve sağlıklı bir kahvaltı içerir."
+  },
+  {
+    "id": 40,
+    "word": "shopping",
+    "level": "A2",
+    "topic": "Daily Life",
+    "sentence": "We went grocery shopping at the neighborhood supermarket.",
+    "translation": "Mahalledeki süpermarkete market alışverişine gittik."
+  },
+  {
+    "id": 41,
+    "word": "family",
+    "level": "A2",
+    "topic": "Daily Life",
+    "sentence": "Our family spent a relaxing Sunday afternoon by the lake.",
+    "translation": "Ailemiz göl kenarında dinlendirici bir pazar öğleden sonrası geçirdi."
+  },
+  {
+    "id": 42,
+    "word": "dinner",
+    "level": "A2",
+    "topic": "Daily Life",
+    "sentence": "They cooked a wonderful pasta dinner for their guests.",
+    "translation": "Misafirleri için harika bir makarna yemeği pişirdiler."
+  },
+  {
+    "id": 43,
+    "word": "phone",
+    "level": "A2",
+    "topic": "Daily Life",
+    "sentence": "He checks his phone messages while waiting for the bus.",
+    "translation": "Otobüs beklerken telefonundaki mesajları kontrol eder."
+  },
+  {
+    "id": 44,
+    "word": "coffee",
+    "level": "B1",
+    "topic": "Daily Life",
+    "sentence": "Having freshly brewed coffee helps me concentrate during busy mornings.",
+    "translation": "Taze demlenmiş kahve içmek, yoğun sabahlarda konsantre olmama yardımcı olur."
+  },
+  {
+    "id": 45,
+    "word": "balance",
+    "level": "B1",
+    "topic": "Daily Life",
+    "sentence": "Maintaining a healthy balance between rest and activity is essential.",
+    "translation": "Dinlenme ve aktivite arasında sağlıklı bir denge kurmak şarttır."
+  },
+  {
+    "id": 46,
+    "word": "habit",
+    "level": "B1",
+    "topic": "Daily Life",
+    "sentence": "Reading twenty pages every night has become a rewarding daily habit.",
+    "translation": "Her gece yirmi sayfa okumak faydalı bir günlük alışkanlık haline geldi."
+  },
+  {
+    "id": 47,
+    "word": "schedule",
+    "level": "B1",
+    "topic": "Daily Life",
+    "sentence": "Organizing your weekly schedule in advance saves valuable time.",
+    "translation": "Haftalık programınızı önceden düzenlemek değerli zamandan tasarruf sağlar."
+  },
+  {
+    "id": 48,
+    "word": "lifestyle",
+    "level": "B1",
+    "topic": "Daily Life",
+    "sentence": "Adopting an active lifestyle improves both physical and mental well-being.",
+    "translation": "Aktif bir yaşam tarzı benimsemek hem fiziksel hem de zihinsel sağlığı geliştirir."
+  },
+  {
+    "id": 49,
+    "word": "coffee",
+    "level": "B2",
+    "topic": "Daily Life",
+    "sentence": "Artisanal coffee culture has expanded rapidly across contemporary urban neighborhoods.",
+    "translation": "Nitelikli kahve kültürü, çağdaş kentsel mahallelerde hızla yayıldı."
+  },
+  {
+    "id": 50,
+    "word": "mindfulness",
+    "level": "B2",
+    "topic": "Daily Life",
+    "sentence": "Practicing mindfulness each morning reduces stress and fosters mental clarity.",
+    "translation": "Her sabah farkındalık egzersizi yapmak stresi azaltır ve zihinsel berraklığı artırır."
+  },
+  {
+    "id": 51,
+    "word": "routine",
+    "level": "B2",
+    "topic": "Daily Life",
+    "sentence": "Establishing a disciplined daily routine fosters long-term personal productivity.",
+    "translation": "Disiplinli bir günlük rutin oluşturmak, uzun vadeli kişisel üretkenliği artırır."
+  },
+  {
+    "id": 52,
+    "word": "sustainability",
+    "level": "B2",
+    "topic": "Daily Life",
+    "sentence": "Integrating sustainable habits into daily life helps protect the natural environment.",
+    "translation": "Sürdürülebilir alışkanlıkları günlük yaşama entegre etmek doğal çevrenin korunmasına yardımcı olur."
+  },
+  {
+    "id": 53,
+    "word": "apple",
+    "level": "A1",
+    "topic": "Food",
+    "sentence": "I eat a sweet red apple every morning.",
+    "translation": "Her sabah tatlı kırmızı bir elma yerim."
+  },
+  {
+    "id": 54,
+    "word": "apple",
+    "level": "A1",
+    "topic": "Food",
+    "sentence": "There is a fresh green apple on the table.",
+    "translation": "Masanın üzerinde taze yeşil bir elma var."
+  },
+  {
+    "id": 55,
+    "word": "food",
+    "level": "A1",
+    "topic": "Food",
+    "sentence": "Italian food is very tasty and popular.",
+    "translation": "İtalyan yemekleri çok lezzetli ve popülerdir."
+  },
+  {
+    "id": 56,
+    "word": "bread",
+    "level": "A1",
+    "topic": "Food",
+    "sentence": "We buy warm bread from the local bakery.",
+    "translation": "Yerel fırından sıcak ekmek alırız."
+  },
+  {
+    "id": 57,
+    "word": "milk",
+    "level": "A1",
+    "topic": "Food",
+    "sentence": "He drinks a glass of fresh milk before bed.",
+    "translation": "Yatmadan önce bir bardak taze süt içer."
+  },
+  {
+    "id": 58,
+    "word": "fruit",
+    "level": "A1",
+    "topic": "Food",
+    "sentence": "Fresh fruit gives us natural energy and vitamins.",
+    "translation": "Taze meyveler bize doğal enerji ve vitamin verir."
+  },
+  {
+    "id": 59,
+    "word": "breakfast",
+    "level": "A1",
+    "topic": "Food",
+    "sentence": "They eat eggs and toast for morning breakfast.",
+    "translation": "Sabah kahvaltısında yumurta ve kızarmış ekmek yerler."
+  },
+  {
+    "id": 60,
+    "word": "tea",
+    "level": "A1",
+    "topic": "Food",
+    "sentence": "My grandmother likes hot green tea with honey.",
+    "translation": "Büyükannem ballı sıcak yeşil çayı sever."
+  },
+  {
+    "id": 61,
+    "word": "water",
+    "level": "A1",
+    "topic": "Food",
+    "sentence": "Pure water is the best drink for your health.",
+    "translation": "Saf su sağlığınız için en iyi içecektir."
+  },
+  {
+    "id": 62,
+    "word": "apple",
+    "level": "A2",
+    "topic": "Food",
+    "sentence": "My grandmother baked a delicious warm apple pie today.",
+    "translation": "Büyükannem bugün lezzetli, ılık bir elmalı turta pişirdi."
+  },
+  {
+    "id": 63,
+    "word": "cook",
+    "level": "A2",
+    "topic": "Food",
+    "sentence": "We like to cook vegetable soup on cold winter evenings.",
+    "translation": "Soğuk kış akşamlarında sebze çorbası pişirmeyi severiz."
+  },
+  {
+    "id": 64,
+    "word": "restaurant",
+    "level": "A2",
+    "topic": "Food",
+    "sentence": "They discovered a charming new restaurant near the town square.",
+    "translation": "Kasaba meydanının yakınında büyüleyici yeni bir restoran keşfettiler."
+  },
+  {
+    "id": 65,
+    "word": "recipe",
+    "level": "A2",
+    "topic": "Food",
+    "sentence": "She followed an easy recipe to bake chocolate chip cookies.",
+    "translation": "Çikolata parçacıklı kurabiyeler pişirmek için kolay bir tarifi takip etti."
+  },
+  {
+    "id": 66,
+    "word": "salad",
+    "level": "A2",
+    "topic": "Food",
+    "sentence": "A colorful garden salad makes a refreshing lunch.",
+    "translation": "Renkli bir bahçe salatası ferahlatıcı bir öğle yemeği olur."
+  },
+  {
+    "id": 67,
+    "word": "apple",
+    "level": "B1",
+    "topic": "Food",
+    "sentence": "Crisp organic apples provide dietary fiber and essential antioxidants.",
+    "translation": "Kıtır organik elmalar diyet lifi ve temel antioksidanlar sağlar."
+  },
+  {
+    "id": 68,
+    "word": "nutrition",
+    "level": "B1",
+    "topic": "Food",
+    "sentence": "Proper nutrition plays a fundamental role in maintaining long-term vitality.",
+    "translation": "Doğru beslenme, uzun vadeli canlılığı korumada temel bir rol oynar."
+  },
+  {
+    "id": 69,
+    "word": "ingredient",
+    "level": "B1",
+    "topic": "Food",
+    "sentence": "Using fresh local ingredients enhances the natural flavor of every dish.",
+    "translation": "Taze yerel malzemeler kullanmak her yemeğin doğal lezzetini artırır."
+  },
+  {
+    "id": 70,
+    "word": "diet",
+    "level": "B1",
+    "topic": "Food",
+    "sentence": "A balanced Mediterranean diet includes olive oil, vegetables, and whole grains.",
+    "translation": "Dengeli bir Akdeniz diyeti zeytinyağı, sebzeler ve tam tahılları içerir."
+  },
+  {
+    "id": 71,
+    "word": "flavor",
+    "level": "B1",
+    "topic": "Food",
+    "sentence": "Traditional spices add distinctive aromatic flavors to Mediterranean cuisine.",
+    "translation": "Geleneksel baharatlar Akdeniz mutfağına kendine özgü aromatik lezzetler katar."
+  },
+  {
+    "id": 72,
+    "word": "culinary",
+    "level": "B2",
+    "topic": "Food",
+    "sentence": "Mastering culinary techniques requires patience, precision, and continuous practice.",
+    "translation": "Mutfak tekniklerinde ustalaşmak sabır, hassasiyet ve sürekli pratik gerektirir."
+  },
+  {
+    "id": 73,
+    "word": "gastronomy",
+    "level": "B2",
+    "topic": "Food",
+    "sentence": "Regional gastronomy reflects the cultural heritage and geographical climate of a country.",
+    "translation": "Bölgesel gastronomi, bir ülkenin kültürel mirasını ve coğrafi iklimini yansıtır."
+  },
+  {
+    "id": 74,
+    "word": "organic",
+    "level": "B2",
+    "topic": "Food",
+    "sentence": "Consumers increasingly prefer certified organic produce grown without synthetic pesticides.",
+    "translation": "Tüketiciler giderek sentetik tarım ilaçları olmadan yetiştirilen sertifikalı organik ürünleri tercih ediyor."
+  },
+  {
+    "id": 75,
+    "word": "fermentation",
+    "level": "B2",
+    "topic": "Food",
+    "sentence": "Traditional fermentation processes enrich foods with beneficial probiotic bacteria.",
+    "translation": "Geleneksel fermantasyon süreçleri, gıdaları faydalı probiyotik bakterilerle zenginleştirir."
+  },
+  {
+    "id": 76,
+    "word": "music",
+    "level": "A1",
+    "topic": "Hobbies",
+    "sentence": "I listen to happy music in my room.",
+    "translation": "Odamda neşeli müzik dinlerim."
+  },
+  {
+    "id": 77,
+    "word": "music",
+    "level": "A1",
+    "topic": "Hobbies",
+    "sentence": "She plays classical piano music very well.",
+    "translation": "Klasik piyano müziğini çok iyi çalar."
+  },
+  {
+    "id": 78,
+    "word": "guitar",
+    "level": "A1",
+    "topic": "Hobbies",
+    "sentence": "My brother plays the acoustic guitar every weekend.",
+    "translation": "Erkek kardeşim her hafta sonu akustik gitar çalar."
+  },
+  {
+    "id": 79,
+    "word": "game",
+    "level": "A1",
+    "topic": "Hobbies",
+    "sentence": "We play a fun board game with our family.",
+    "translation": "Ailemizle eğlenceli bir kutu oyunu oynarız."
+  },
+  {
+    "id": 80,
+    "word": "football",
+    "level": "A1",
+    "topic": "Hobbies",
+    "sentence": "The boys play football outside after school.",
+    "translation": "Erkek çocukları okuldan sonra dışarıda futbol oynarlar."
+  },
+  {
+    "id": 81,
+    "word": "book",
+    "level": "A1",
+    "topic": "Hobbies",
+    "sentence": "Reading a good book is my favorite hobby.",
+    "translation": "İyi bir kitap okumak en sevdiğim hobimdir."
+  },
+  {
+    "id": 82,
+    "word": "draw",
+    "level": "A1",
+    "topic": "Hobbies",
+    "sentence": "Children love to draw colorful pictures of animals.",
+    "translation": "Çocuklar renkli hayvan resimleri çizmeyi sever."
+  },
+  {
+    "id": 83,
+    "word": "photo",
+    "level": "A1",
+    "topic": "Hobbies",
+    "sentence": "He takes nice photos with his small camera.",
+    "translation": "Küçük kamerasıyla güzel fotoğraflar çeker."
+  },
+  {
+    "id": 84,
+    "word": "music",
+    "level": "A2",
+    "topic": "Hobbies",
+    "sentence": "We attended an acoustic live music concert in the park.",
+    "translation": "Parkta akustik bir canlı müzik konserine katıldık."
+  },
+  {
+    "id": 85,
+    "word": "photography",
+    "level": "A2",
+    "topic": "Hobbies",
+    "sentence": "She enjoys nature photography during quiet weekend hikes.",
+    "translation": "Sessiz hafta sonu yürüyüşlerinde doğa fotoğrafçılığından keyif alır."
+  },
+  {
+    "id": 86,
+    "word": "painting",
+    "level": "A2",
+    "topic": "Hobbies",
+    "sentence": "He took an introductory watercolor painting workshop this summer.",
+    "translation": "Bu yaz sulu boya resmine giriş atölyesine katıldı."
+  },
+  {
+    "id": 87,
+    "word": "gardening",
+    "level": "A2",
+    "topic": "Hobbies",
+    "sentence": "Gardening is a wonderful way to relax and connect with nature.",
+    "translation": "Bahçecilik rahatlamak ve doğayla bağ kurmak için harika bir yoldur."
+  },
+  {
+    "id": 88,
+    "word": "swimming",
+    "level": "A2",
+    "topic": "Hobbies",
+    "sentence": "Swimming twice a week keeps my body strong and flexible.",
+    "translation": "Haftada iki kez yüzmek vücudumu güçlü ve esnek tutar."
+  },
+  {
+    "id": 89,
+    "word": "music",
+    "level": "B1",
+    "topic": "Hobbies",
+    "sentence": "Listening to instrumental music helps relieve anxiety after demanding workdays.",
+    "translation": "Enstrümantal müzik dinlemek, zorlu iş günlerinin ardından kaygıyı hafifletmeye yardımcı olur."
+  },
+  {
+    "id": 90,
+    "word": "creative",
+    "level": "B1",
+    "topic": "Hobbies",
+    "sentence": "Creative hobbies provide an enjoyable outlet for personal self expression.",
+    "translation": "Yaratıcı hobiler, kişisel kendini ifade etme için keyifli bir çıkış noktası sağlar."
+  },
+  {
+    "id": 91,
+    "word": "instrument",
+    "level": "B1",
+    "topic": "Hobbies",
+    "sentence": "Learning a musical instrument develops coordination and mental discipline.",
+    "translation": "Müzik aleti öğrenmek koordinasyonu ve zihinsel disiplini geliştirir."
+  },
+  {
+    "id": 92,
+    "word": "fitness",
+    "level": "B1",
+    "topic": "Hobbies",
+    "sentence": "Regular fitness routines contribute positively to emotional resilience and energy.",
+    "translation": "Düzenli fitness rutinleri duygusal dayanıklılığa ve enerjiye olumlu katkı sağlar."
+  },
+  {
+    "id": 93,
+    "word": "music",
+    "level": "B2",
+    "topic": "Hobbies",
+    "sentence": "Composing orchestral music demands deep technical understanding and emotional sensibility.",
+    "translation": "Orkestra müziği bestelemek derin teknik anlayış ve duygusal duyarlılık gerektirir."
+  },
+  {
+    "id": 94,
+    "word": "recreation",
+    "level": "B2",
+    "topic": "Hobbies",
+    "sentence": "Constructive recreational pursuits promote mental agility throughout adult life.",
+    "translation": "Yapıcı dinlendirici uğraşlar, yetişkinlik hayatı boyunca zihinsel çevikliği teşvik eder."
+  },
+  {
+    "id": 95,
+    "word": "craftsmanship",
+    "level": "B2",
+    "topic": "Hobbies",
+    "sentence": "Traditional woodworking craftsmanship requires meticulous attention to delicate detail.",
+    "translation": "Geleneksel ahşap işçiliği, ince detaylara titiz bir dikkat gerektirir."
+  },
+  {
+    "id": 96,
+    "word": "travel",
+    "level": "A1",
+    "topic": "Travel",
+    "sentence": "I like to travel to new sunny places.",
+    "translation": "Yeni güneşli yerlere seyahat etmeyi severim."
+  },
+  {
+    "id": 97,
+    "word": "travel",
+    "level": "A1",
+    "topic": "Travel",
+    "sentence": "We travel by fast train to the seaside.",
+    "translation": "Deniz kenarına hızlı trenle seyahat ederiz."
+  },
+  {
+    "id": 98,
+    "word": "city",
+    "level": "A1",
+    "topic": "Travel",
+    "sentence": "Paris is a famous city with many museums.",
+    "translation": "Paris, birçok müzesi olan ünlü bir şehirdir."
+  },
+  {
+    "id": 99,
+    "word": "beach",
+    "level": "A1",
+    "topic": "Travel",
+    "sentence": "We swim in the blue sea at the beach.",
+    "translation": "Plajda mavi denizde yüzeriz."
+  },
+  {
+    "id": 100,
+    "word": "journey",
+    "level": "A1",
+    "topic": "Travel",
+    "sentence": "Our holiday journey begins at the central station.",
+    "translation": "Tatil yolculuğumuz merkez istasyonunda başlar."
+  },
+  {
+    "id": 101,
+    "word": "hotel",
+    "level": "A1",
+    "topic": "Travel",
+    "sentence": "The clean hotel is near the airport.",
+    "translation": "Temiz otel havaalanının yakınındadır."
+  },
+  {
+    "id": 102,
+    "word": "train",
+    "level": "A1",
+    "topic": "Travel",
+    "sentence": "The morning train arrives on time every day.",
+    "translation": "Sabah treni her gün zamanında gelir."
+  },
+  {
+    "id": 103,
+    "word": "beautiful",
+    "level": "A1",
+    "topic": "Travel",
+    "sentence": "The green mountain view is very beautiful.",
+    "translation": "Yeşil dağ manzarası çok güzeldir."
+  },
+  {
+    "id": 104,
+    "word": "travel",
+    "level": "A2",
+    "topic": "Travel",
+    "sentence": "They planned a scenic road trip across the southern coast.",
+    "translation": "Güney sahili boyunca manzaralı bir araba yolculuğu planladılar."
+  },
+  {
+    "id": 105,
+    "word": "journey",
+    "level": "A2",
+    "topic": "Travel",
+    "sentence": "Our train journey through the snow mountains was unforgettable.",
+    "translation": "Karlı dağlar arasındaki tren yolculuğumuz unutulmazdı."
+  },
+  {
+    "id": 106,
+    "word": "beautiful",
+    "level": "A2",
+    "topic": "Travel",
+    "sentence": "We walked through beautiful old streets in the historical center.",
+    "translation": "Tarihi merkezdeki güzel eski sokaklarda yürüdük."
+  },
+  {
+    "id": 107,
+    "word": "airport",
+    "level": "A2",
+    "topic": "Travel",
+    "sentence": "We arrived at the international airport two hours before departure.",
+    "translation": "Kalkıştan iki saat önce uluslararası havalimanına vardık."
+  },
+  {
+    "id": 108,
+    "word": "passport",
+    "level": "A2",
+    "topic": "Travel",
+    "sentence": "Remember to check your valid passport before traveling abroad.",
+    "translation": "Yurt dışına seyahat etmeden önce geçerli pasaportunuzu kontrol etmeyi unutmayın."
+  },
+  {
+    "id": 109,
+    "word": "tourist",
+    "level": "A2",
+    "topic": "Travel",
+    "sentence": "Many tourists visit the historic castle during the summer festival.",
+    "translation": "Yaz festivali sırasında birçok turist tarihi kaleyi ziyaret eder."
+  },
+  {
+    "id": 110,
+    "word": "travel",
+    "level": "B1",
+    "topic": "Travel",
+    "sentence": "Traveling independently allows you to discover hidden gems off the beaten path.",
+    "translation": "Bağımsız seyahat etmek, alışılagelmiş rotaların dışındaki gizli güzellikleri keşfetmenizi sağlar."
+  },
+  {
+    "id": 111,
+    "word": "journey",
+    "level": "B1",
+    "topic": "Travel",
+    "sentence": "The adventurous journey challenged our expectations and broadened our outlook.",
+    "translation": "Macera dolu yolculuk beklentilerimizi zorladı ve bakış açımızı genişletti."
+  },
+  {
+    "id": 112,
+    "word": "destination",
+    "level": "B1",
+    "topic": "Travel",
+    "sentence": "Selecting an affordable holiday destination requires thorough research.",
+    "translation": "Uygun fiyatlı bir tatil yeri seçmek kapsamlı bir araştırma gerektirir."
+  },
+  {
+    "id": 113,
+    "word": "culture",
+    "level": "B1",
+    "topic": "Travel",
+    "sentence": "Experiencing different cultures helps travelers develop empathy and open mindedness.",
+    "translation": "Farklı kültürleri deneyimlemek, gezginlerin empati ve açık fikirlilik geliştirmesine yardımcı olur."
+  },
+  {
+    "id": 114,
+    "word": "beautiful",
+    "level": "B1",
+    "topic": "Travel",
+    "sentence": "The coastal national park features exceptionally beautiful landscapes and wildlife.",
+    "translation": "Kıyı milli parkı son derece güzel manzaralara ve yaban hayatına sahiptir."
+  },
+  {
+    "id": 115,
+    "word": "travel",
+    "level": "B2",
+    "topic": "Travel",
+    "sentence": "Sustainable eco travel minimizes environmental impact while supporting indigenous communities.",
+    "translation": "Sürdürülebilir eko-turizm, yerli toplulukları desteklerken çevresel etkiyi en aza indirir."
+  },
+  {
+    "id": 116,
+    "word": "journey",
+    "level": "B2",
+    "topic": "Travel",
+    "sentence": "The epic transcontinental journey inspired notable writers and intrepid photographers alike.",
+    "translation": "Destansı kıtalararası yolculuk, hem tanınmış yazarlara hem de cesur fotoğrafçılara ilham verdi."
+  },
+  {
+    "id": 117,
+    "word": "itinerary",
+    "level": "B2",
+    "topic": "Travel",
+    "sentence": "Their customized travel itinerary balanced historical exploration with recreational leisure.",
+    "translation": "Kişiselleştirilmiş seyahat programları, tarihi keşif ile dinlendirici eğlenceyi dengeledi."
+  },
+  {
+    "id": 118,
+    "word": "hospitality",
+    "level": "B2",
+    "topic": "Travel",
+    "sentence": "Warm local hospitality significantly enhances the overall experience of international visitors.",
+    "translation": "Sıcak yerel misafirperverlik, uluslararası ziyaretçilerin genel deneyimini önemli ölçüde artırır."
+  },
+  {
+    "id": 119,
+    "word": "work",
+    "level": "A1",
+    "topic": "Work",
+    "sentence": "I work in a quiet modern office.",
+    "translation": "Sessiz ve modern bir ofiste çalışıyorum."
+  },
+  {
+    "id": 120,
+    "word": "work",
+    "level": "A1",
+    "topic": "Work",
+    "sentence": "She starts her morning work at eight oclock.",
+    "translation": "Sabah işine saat sekizde başlar."
+  },
+  {
+    "id": 121,
+    "word": "computer",
+    "level": "A1",
+    "topic": "Work",
+    "sentence": "I use a fast computer for my office tasks.",
+    "translation": "Ofis görevlerim için hızlı bir bilgisayar kullanırım."
+  },
+  {
+    "id": 122,
+    "word": "job",
+    "level": "A1",
+    "topic": "Work",
+    "sentence": "He has an interesting job in a city store.",
+    "translation": "Şehirdeki bir mağazada ilginç bir işi var."
+  },
+  {
+    "id": 123,
+    "word": "office",
+    "level": "A1",
+    "topic": "Work",
+    "sentence": "Our team meets in the main office every Monday.",
+    "translation": "Ekibimiz her pazartesi ana ofiste toplanır."
+  },
+  {
+    "id": 124,
+    "word": "colleague",
+    "level": "A1",
+    "topic": "Work",
+    "sentence": "My kind colleague helps me with my daily tasks.",
+    "translation": "Nazik iş arkadaşım günlük görevlerimde bana yardım eder."
+  },
+  {
+    "id": 125,
+    "word": "manager",
+    "level": "A1",
+    "topic": "Work",
+    "sentence": "The friendly office manager answers our questions.",
+    "translation": "Güler yüzlü ofis müdürü sorularımızı yanıtlar."
+  },
+  {
+    "id": 126,
+    "word": "work",
+    "level": "A2",
+    "topic": "Work",
+    "sentence": "They worked overtime to finish the monthly marketing report on time.",
+    "translation": "Aylık pazarlama raporunu zamanında bitirmek için fazla mesai yaptılar."
+  },
+  {
+    "id": 127,
+    "word": "computer",
+    "level": "A2",
+    "topic": "Work",
+    "sentence": "She learned new computer skills to improve her daily productivity.",
+    "translation": "Günlük üretkenliğini artırmak için yeni bilgisayar becerileri öğrendi."
+  },
+  {
+    "id": 128,
+    "word": "meeting",
+    "level": "A2",
+    "topic": "Work",
+    "sentence": "Our project team scheduled a weekly review meeting for tomorrow.",
+    "translation": "Proje ekibimiz yarın için haftalık bir değerlendirme toplantısı planladı."
+  },
+  {
+    "id": 129,
+    "word": "email",
+    "level": "A2",
+    "topic": "Work",
+    "sentence": "He answered all customer emails before leaving the office.",
+    "translation": "Ofisten ayrılmadan önce tüm müşteri e-postalarını yanıtladı."
+  },
+  {
+    "id": 130,
+    "word": "project",
+    "level": "A2",
+    "topic": "Work",
+    "sentence": "The engineering team completed the difficult construction project successfully.",
+    "translation": "Mühendislik ekibi zorlu inşaat projesini başarıyla tamamladı."
+  },
+  {
+    "id": 131,
+    "word": "work",
+    "level": "B1",
+    "topic": "Work",
+    "sentence": "Effective remote work requires reliable communication channels and personal self discipline.",
+    "translation": "Etkili uzaktan çalışma, güvenilir iletişim kanalları ve kişisel öz disiplin gerektirir."
+  },
+  {
+    "id": 132,
+    "word": "computer",
+    "level": "B1",
+    "topic": "Work",
+    "sentence": "Modern computer algorithms streamline repetitive tasks across complex business operations.",
+    "translation": "Modern bilgisayar algoritmaları, karmaşık iş operasyonlarındaki tekrarlayan görevleri kolaylaştırır."
+  },
+  {
+    "id": 133,
+    "word": "collaboration",
+    "level": "B1",
+    "topic": "Work",
+    "sentence": "Cross functional collaboration fosters innovative problem solving within growing companies.",
+    "translation": "Fonksiyonlar arası iş birliği, büyüyen şirketlerde yenilikçi problem çözmeyi teşvik eder."
+  },
+  {
+    "id": 134,
+    "word": "deadline",
+    "level": "B1",
+    "topic": "Work",
+    "sentence": "Meeting tight deadlines requires realistic prioritization and strategic delegation.",
+    "translation": "Kısa teslim tarihlerine yetişmek, gerçekçi önceliklendirme ve stratejik görev dağılımı gerektirir."
+  },
+  {
+    "id": 135,
+    "word": "career",
+    "level": "B1",
+    "topic": "Work",
+    "sentence": "Pursuing professional certifications accelerates career development in competitive industries.",
+    "translation": "Mesleki sertifikalar almak, rekabetçi sektörlerde kariyer gelişimini hızlandırır."
+  },
+  {
+    "id": 136,
+    "word": "work",
+    "level": "B2",
+    "topic": "Work",
+    "sentence": "Collaborative work environments empower interdisciplinary teams to deliver innovative solutions.",
+    "translation": "İş birliğine dayalı çalışma ortamları, disiplinler arası ekipleri yenilikçi çözümler sunmaları için güçlendirir."
+  },
+  {
+    "id": 137,
+    "word": "computer",
+    "level": "B2",
+    "topic": "Work",
+    "sentence": "Advanced computer simulations optimize operational efficiency across large logistics networks.",
+    "translation": "Gelişmiş bilgisayar simülasyonları, büyük lojistik ağlarındaki operasyonel verimliliği optimize eder."
+  },
+  {
+    "id": 138,
+    "word": "leadership",
+    "level": "B2",
+    "topic": "Work",
+    "sentence": "Transformational leadership inspires organizational commitment and high performance standards.",
+    "translation": "Dönüşümcü liderlik, örgütsel bağlılığa ve yüksek performans standartlarına ilham verir."
+  },
+  {
+    "id": 139,
+    "word": "productivity",
+    "level": "B2",
+    "topic": "Work",
+    "sentence": "Streamlined operational procedures directly enhance organizational productivity and morale.",
+    "translation": "Sadeleştirilmiş operasyonel prosedürler, kurumsal verimliliği ve morali doğrudan artırır."
+  },
+  {
+    "id": 140,
+    "word": "negotiation",
+    "level": "B2",
+    "topic": "Work",
+    "sentence": "Strategic negotiation skills are indispensable when brokering high stakes commercial contracts.",
+    "translation": "Stratejik müzakere becerileri, yüksek riskli ticari sözleşmelerin arabuluculuğunda vazgeçilmezdir."
+  },
+  {
+    "id": 141,
+    "word": "school",
+    "level": "A1",
+    "topic": "School",
+    "sentence": "We have fun English lessons at school.",
+    "translation": "Okulda eğlenceli İngilizce derslerimiz var."
+  },
+  {
+    "id": 142,
+    "word": "school",
+    "level": "A1",
+    "topic": "School",
+    "sentence": "The school bus arrives at eight in the morning.",
+    "translation": "Okul servisi sabah saat sekizde gelir."
+  },
+  {
+    "id": 143,
+    "word": "school",
+    "level": "A1",
+    "topic": "School",
+    "sentence": "I have many good friends at my school.",
+    "translation": "Okulumda birçok iyi arkadaşım var."
+  },
+  {
+    "id": 144,
+    "word": "school",
+    "level": "A1",
+    "topic": "School",
+    "sentence": "My favorite place at school is the big library.",
+    "translation": "Okulda en sevdiğim yer büyük kütüphanedir."
+  },
+  {
+    "id": 145,
+    "word": "school",
+    "level": "A1",
+    "topic": "School",
+    "sentence": "We eat healthy lunch together at school.",
+    "translation": "Okulda birlikte sağlıklı bir öğle yemeği yeriz."
+  },
+  {
+    "id": 146,
+    "word": "school",
+    "level": "A1",
+    "topic": "School",
+    "sentence": "Students play games in the school yard.",
+    "translation": "Öğrenciler okul bahçesinde oyun oynarlar."
+  },
+  {
+    "id": 147,
+    "word": "school",
+    "level": "A1",
+    "topic": "School",
+    "sentence": "I bring my yellow backpack to school.",
+    "translation": "Sarı sırt çantamı okula getiririm."
+  },
+  {
+    "id": 148,
+    "word": "school",
+    "level": "A1",
+    "topic": "School",
+    "sentence": "Our school starts early on Monday.",
+    "translation": "Okulumuz pazartesi günü erken başlar."
+  },
+  {
+    "id": 149,
+    "word": "school",
+    "level": "A1",
+    "topic": "Daily Life",
+    "sentence": "I walk past the school every morning.",
+    "translation": "Her sabah okulun önünden yürüyerek geçerim."
+  },
+  {
+    "id": 150,
+    "word": "school",
+    "level": "A1",
+    "topic": "Daily Life",
+    "sentence": "After school I do my daily homework.",
+    "translation": "Okuldan sonra günlük ödevimi yaparım."
+  },
+  {
+    "id": 151,
+    "word": "school",
+    "level": "A1",
+    "topic": "Daily Life",
+    "sentence": "We ride our bicycles to school.",
+    "translation": "Okula bisikletlerimizle gideriz."
+  },
+  {
+    "id": 152,
+    "word": "school",
+    "level": "A1",
+    "topic": "Daily Life",
+    "sentence": "School finishes at three oclock in the afternoon.",
+    "translation": "Okul öğleden sonra saat üçte biter."
+  },
+  {
+    "id": 153,
+    "word": "school",
+    "level": "A1",
+    "topic": "Daily Life",
+    "sentence": "My mother walks with me to school.",
+    "translation": "Annem benimle okula kadar yürür."
+  },
+  {
+    "id": 154,
+    "word": "apple",
+    "level": "A1",
+    "topic": "Food",
+    "sentence": "I eat an apple every morning.",
+    "translation": "Her sabah bir elma yerim."
+  },
+  {
+    "id": 155,
+    "word": "apple",
+    "level": "A1",
+    "topic": "Food",
+    "sentence": "An apple is a sweet and healthy fruit.",
+    "translation": "Elma tatlı ve sağlıklı bir meyvedir."
+  },
+  {
+    "id": 156,
+    "word": "apple",
+    "level": "A1",
+    "topic": "Food",
+    "sentence": "She puts a fresh apple in her lunchbox.",
+    "translation": "Beslenme çantasına taze bir elma koyar."
+  },
+  {
+    "id": 157,
+    "word": "apple",
+    "level": "A1",
+    "topic": "Food",
+    "sentence": "We pick ripe apples in the autumn garden.",
+    "translation": "Sonbahar bahçesinde olgun elmaları toplarız."
+  },
+  {
+    "id": 158,
+    "word": "apple",
+    "level": "A1",
+    "topic": "Food",
+    "sentence": "My sister likes red apple juice with breakfast.",
+    "translation": "Kız kardeşim kahvaltıda kırmızı elma suyunu sever."
+  },
+  {
+    "id": 159,
+    "word": "apple",
+    "level": "A1",
+    "topic": "Food",
+    "sentence": "There are five green apples in the bowl.",
+    "translation": "Kasede beş yeşil elma var."
+  },
+  {
+    "id": 160,
+    "word": "apple",
+    "level": "A1",
+    "topic": "Food",
+    "sentence": "I wash the apple before I eat it.",
+    "translation": "Elmayı yemeden önce yıkarım."
+  },
+  {
+    "id": 161,
+    "word": "apple",
+    "level": "A1",
+    "topic": "Food",
+    "sentence": "Sweet apples make a delicious light snack.",
+    "translation": "Tatlı elmalar lezzetli ve hafif bir atıştırmalık olur."
+  },
+  {
+    "id": 162,
+    "word": "apple",
+    "level": "A1",
+    "topic": "Food",
+    "sentence": "He cuts the apple into small pieces.",
+    "translation": "Elmayı küçük parçalara böler."
+  },
+  {
+    "id": 163,
+    "word": "apple",
+    "level": "A1",
+    "topic": "Food",
+    "sentence": "We buy fresh apples from the farmer market.",
+    "translation": "Köylü pazarından taze elma alırız."
+  },
+  {
+    "id": 164,
+    "word": "coffee",
+    "level": "A1",
+    "topic": "Daily Life",
+    "sentence": "He drinks warm coffee with white milk.",
+    "translation": "Beyaz sütlü ılık kahve içer."
+  },
+  {
+    "id": 165,
+    "word": "coffee",
+    "level": "A1",
+    "topic": "Daily Life",
+    "sentence": "A cup of hot coffee starts the day.",
+    "translation": "Bir fincan sıcak kahve günü başlatır."
+  },
+  {
+    "id": 166,
+    "word": "coffee",
+    "level": "A1",
+    "topic": "Daily Life",
+    "sentence": "We sit in the cafe and drink coffee.",
+    "translation": "Kafede oturup kahve içeriz."
+  },
+  {
+    "id": 167,
+    "word": "coffee",
+    "level": "A1",
+    "topic": "Daily Life",
+    "sentence": "My father likes hot coffee after dinner.",
+    "translation": "Babam akşam yemeğinden sonra sıcak kahveyi sever."
+  },
+  {
+    "id": 168,
+    "word": "coffee",
+    "level": "A1",
+    "topic": "Daily Life",
+    "sentence": "I smell fresh coffee in the kitchen.",
+    "translation": "Mutfakta taze kahve kokusu alıyorum."
+  },
+  {
+    "id": 169,
+    "word": "coffee",
+    "level": "A1",
+    "topic": "Daily Life",
+    "sentence": "She buys sweet iced coffee on hot days.",
+    "translation": "Sıcak günlerde tatlı buzlu kahve alır."
+  },
+  {
+    "id": 170,
+    "word": "coffee",
+    "level": "A1",
+    "topic": "Daily Life",
+    "sentence": "They talk and enjoy good coffee together.",
+    "translation": "Sohbet ederler ve birlikte güzel kahvenin tadını çıkarırlar."
+  },
+  {
+    "id": 171,
+    "word": "work",
+    "level": "A1",
+    "topic": "Work",
+    "sentence": "I walk to work every sunny morning.",
+    "translation": "Her güneşli sabah işe yürürüm."
+  },
+  {
+    "id": 172,
+    "word": "work",
+    "level": "A1",
+    "topic": "Work",
+    "sentence": "My father likes his interesting work.",
+    "translation": "Babam ilginç işini sever."
+  },
+  {
+    "id": 173,
+    "word": "work",
+    "level": "A1",
+    "topic": "Work",
+    "sentence": "We finish our work before five oclock.",
+    "translation": "İşimizi saat beşten önce bitiririz."
+  },
+  {
+    "id": 174,
+    "word": "work",
+    "level": "A1",
+    "topic": "Work",
+    "sentence": "She brings a laptop to work every day.",
+    "translation": "Her gün işe bir dizüstü bilgisayar getirir."
+  },
+  {
+    "id": 175,
+    "word": "work",
+    "level": "A1",
+    "topic": "Work",
+    "sentence": "Good teamwork makes hard work easier.",
+    "translation": "İyi bir takım çalışması zor işleri kolaylaştırır."
+  },
+  {
+    "id": 176,
+    "word": "work",
+    "level": "A1",
+    "topic": "Work",
+    "sentence": "He takes the train to work every day.",
+    "translation": "Her gün işe gitmek için trene biner."
+  },
+  {
+    "id": 177,
+    "word": "work",
+    "level": "A1",
+    "topic": "Work",
+    "sentence": "We have a friendly team at work.",
+    "translation": "İşte arkadaş canlısı bir ekibimiz var."
+  },
+  {
+    "id": 178,
+    "word": "work",
+    "level": "A1",
+    "topic": "Work",
+    "sentence": "I drink water while I work at my desk.",
+    "translation": "Masamda çalışırken su içerim."
+  },
+  {
+    "id": 179,
+    "word": "travel",
+    "level": "A1",
+    "topic": "Travel",
+    "sentence": "Many people travel during the warm summer.",
+    "translation": "Birçok insan sıcak yaz aylarında seyahat eder."
+  },
+  {
+    "id": 180,
+    "word": "travel",
+    "level": "A1",
+    "topic": "Travel",
+    "sentence": "We travel to the seaside with our parents.",
+    "translation": "Anne babamızla deniz kenarına seyahat ederiz."
+  },
+  {
+    "id": 181,
+    "word": "travel",
+    "level": "A1",
+    "topic": "Travel",
+    "sentence": "I like to travel by modern high speed train.",
+    "translation": "Modern yüksek hızlı trenle seyahat etmeyi severim."
+  },
+  {
+    "id": 182,
+    "word": "travel",
+    "level": "A1",
+    "topic": "Travel",
+    "sentence": "They travel around the old city on foot.",
+    "translation": "Eski şehri yürüyerek gezerler."
+  },
+  {
+    "id": 183,
+    "word": "travel",
+    "level": "A1",
+    "topic": "Travel",
+    "sentence": "It is exciting to travel to different countries.",
+    "translation": "Farklı ülkelere seyahat etmek heyecan vericidir."
+  },
+  {
+    "id": 184,
+    "word": "travel",
+    "level": "A1",
+    "topic": "Travel",
+    "sentence": "We travel with light bags and backpacks.",
+    "translation": "Hafif çantalar ve sırt çantalarıyla seyahat ederiz."
+  },
+  {
+    "id": 185,
+    "word": "travel",
+    "level": "A1",
+    "topic": "Travel",
+    "sentence": "She wants to travel to Japan next spring.",
+    "translation": "Gelecek baharda Japonya'ya seyahat etmek istiyor."
+  },
+  {
+    "id": 186,
+    "word": "music",
+    "level": "A1",
+    "topic": "Hobbies",
+    "sentence": "We sing beautiful music in the children choir.",
+    "translation": "Çocuk korosunda güzel müzikler söyleriz."
+  },
+  {
+    "id": 187,
+    "word": "music",
+    "level": "A1",
+    "topic": "Hobbies",
+    "sentence": "I play energetic music while I exercise.",
+    "translation": "Egzersiz yaparken enerjik müzik açarım."
+  },
+  {
+    "id": 188,
+    "word": "music",
+    "level": "A1",
+    "topic": "Hobbies",
+    "sentence": "My grandfather enjoys listening to old music.",
+    "translation": "Büyükbabam eski müzikleri dinlemekten keyif alır."
+  },
+  {
+    "id": 189,
+    "word": "music",
+    "level": "A1",
+    "topic": "Hobbies",
+    "sentence": "Good music brings happiness to every home.",
+    "translation": "Güzel müzik her eve mutluluk getirir."
+  },
+  {
+    "id": 190,
+    "word": "music",
+    "level": "A1",
+    "topic": "Hobbies",
+    "sentence": "She listens to quiet music before sleep.",
+    "translation": "Uyumadan önce dinlendirici müzik dinler."
+  },
+  {
+    "id": 191,
+    "word": "music",
+    "level": "A1",
+    "topic": "Hobbies",
+    "sentence": "We dance when we hear rhythmic music.",
+    "translation": "Ritmik müzik duyduğumuzda dans ederiz."
+  },
+  {
+    "id": 192,
+    "word": "music",
+    "level": "A1",
+    "topic": "Hobbies",
+    "sentence": "He plays cheerful music on his wooden guitar.",
+    "translation": "Ahşap gitarıyla neşeli müzikler çalar."
+  },
+  {
+    "id": 193,
+    "word": "book",
+    "level": "A1",
+    "topic": "School",
+    "sentence": "Open your English book on page ten.",
+    "translation": "İngilizce kitabınızın onuncu sayfasını açın."
+  },
+  {
+    "id": 194,
+    "word": "book",
+    "level": "A1",
+    "topic": "School",
+    "sentence": "There is a colorful grammar book on my desk.",
+    "translation": "Masamda renkli bir dilbilgisi kitabı var."
+  },
+  {
+    "id": 195,
+    "word": "book",
+    "level": "A1",
+    "topic": "School",
+    "sentence": "The teacher reads a lovely book to the class.",
+    "translation": "Öğretmen sınıfa güzel bir kitap okur."
+  },
+  {
+    "id": 196,
+    "word": "book",
+    "level": "A1",
+    "topic": "School",
+    "sentence": "I keep my notebook and book in my bag.",
+    "translation": "Defterimi ve kitabımı çantamda tutarım."
+  },
+  {
+    "id": 197,
+    "word": "book",
+    "level": "A1",
+    "topic": "School",
+    "sentence": "We borrow a new science book every Friday.",
+    "translation": "Her cuma yeni bir bilim kitabı ödünç alırız."
+  }
+]

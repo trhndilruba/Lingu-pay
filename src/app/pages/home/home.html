@@ -1,0 +1,195 @@
+
+<div class="home-page">
+  
+<header class="navbar">
+  <a class="brand" routerLink="/">
+    <span class="brand-icon">L</span>
+    <span>LinguaPlay</span>
+  </a>
+
+  <nav class="nav-actions" aria-label="Ana menü">
+    <span class="nav-label">English Learning Games</span>
+
+    @if (isLoggedIn) {
+      <a class="nav-link" routerLink="/profile">Profilim</a>
+      <button class="nav-button" type="button" (click)="logout()">
+        Çıkış yap
+      </button>
+    } @else {
+      <a class="nav-link" routerLink="/login">Giriş yap</a>
+      <a class="nav-button" routerLink="/register">Kayıt ol</a>
+    }
+  </nav>
+</header>
+
+
+  <main class="main-content">
+    <section class="hero">
+      <div class="hero-badge">
+        <span class="status-dot"></span>
+        LEARN THROUGH PLAY
+      </div>
+
+      <h1>
+        Ready to play<br />
+        <span>and learn?</span>
+      </h1>
+
+      <p class="hero-description">
+        Improve your English vocabulary and sentence-building skills
+        with fun, interactive mini-games.
+      </p>
+
+      <a class="explore-button" href="#games">
+        Explore games
+        <span aria-hidden="true">↓</span>
+      </a>
+
+      <div class="hero-decoration decoration-one"></div>
+      <div class="hero-decoration decoration-two"></div>
+    </section>
+    
+    
+@if (isLoggedIn) {
+  <section class="learning-overview">
+    <div class="overview-heading">
+      <div>
+        <p class="eyebrow">YOUR PROGRESS</p>
+        <h2>Welcome back, {{ displayName }}!</h2>
+        <p class="section-description">
+          Keep practicing and improve your English every day.
+        </p>
+      </div>
+
+      <a class="overview-profile-link" routerLink="/profile">
+        View profile ↗
+      </a>
+    </div>
+
+    <div class="overview-grid">
+      <article class="overview-card">
+        <span class="overview-icon">✦</span>
+        <span class="overview-label">Total XP</span>
+        <strong>{{ totalXp }}</strong>
+        <span class="overview-caption">Experience points</span>
+      </article>
+
+      <article class="overview-card">
+        <span class="overview-icon">♛</span>
+        <span class="overview-label">Your level</span>
+        <strong>{{ level }}</strong>
+        <span class="overview-caption">Current level</span>
+      </article>
+
+      <article class="overview-card">
+        <span class="overview-icon">▣</span>
+        <span class="overview-label">Games played</span>
+        <strong>{{ isLoadingStats ? '…' : totalGames }}</strong>
+        <span class="overview-caption">Saved game sessions</span>
+      </article>
+    </div>
+  </section>
+}
+
+    <section id="games" class="games-section">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">YOUR LEARNING SPACE</p>
+          <h2>Choose your game</h2>
+          <p class="section-description">
+            Pick a game and start practicing English at your own pace.
+          </p>
+        </div>
+
+        <span class="game-count">02 GAMES</span>
+      </div>
+
+      <div class="game-grid">
+        <article class="game-card good-words-card">
+          <div class="card-top">
+            <div class="game-icon word-icon" aria-hidden="true">
+              <svg viewBox="0 0 64 64" fill="none">
+                <rect x="7" y="7" width="50" height="50" rx="12"
+                      stroke="currentColor" stroke-width="2.5"/>
+                <path d="M20 20h8v8h-8zM36 20h8v8h-8z
+                         M20 36h8v8h-8zM36 36h8v8h-8z"
+                      stroke="currentColor" stroke-width="2.5"
+                      stroke-linejoin="round"/>
+                <path d="M28 24h8M24 28v8M36 36h8"
+                      stroke="currentColor" stroke-width="2.5"
+                      stroke-linecap="round"/>
+              </svg>
+            </div>
+
+            <span class="game-category">VOCABULARY</span>
+          </div>
+
+          <h3>Good Words</h3>
+
+          <p class="game-description">
+            Discover hidden English words on the letter board.
+            Read the clues, find the words and grow your vocabulary.
+          </p>
+
+          <div class="feature-tags">
+            <span>Word search</span>
+            <span>Vocabulary</span>
+          </div>
+
+          <a
+            class="play-button"
+            routerLink="/good-words"
+            aria-label="Play Good Words"
+          >
+            <span>Play Good Words</span>
+            <span class="button-arrow" aria-hidden="true">↗</span>
+          </a>
+        </article>
+
+        <article class="game-card sentence-card">
+          <div class="card-top">
+            <div class="game-icon sentence-icon" aria-hidden="true">
+              <svg viewBox="0 0 64 64" fill="none">
+                <rect x="8" y="10" width="48" height="44" rx="11"
+                      stroke="currentColor" stroke-width="2.5"/>
+                <path d="M18 23h28M18 32h17M18 41h23"
+                      stroke="currentColor" stroke-width="3"
+                      stroke-linecap="round"/>
+                <circle cx="43" cy="32" r="5"
+                        fill="currentColor"/>
+              </svg>
+            </div>
+
+            <span class="game-category">SENTENCE BUILDING</span>
+          </div>
+
+          <h3>Sentence Scramble</h3>
+
+          <p class="game-description">
+            Put English words in the correct order to build sentences.
+            Practice grammar and understand how sentences work.
+          </p>
+
+          <div class="feature-tags">
+            <span>Word ordering</span>
+            <span>Grammar</span>
+          </div>
+
+          <a
+            class="play-button"
+            routerLink="/sentence-scramble"
+            aria-label="Play Sentence Scramble"
+          >
+            <span>Play Sentence Scramble</span>
+            <span class="button-arrow" aria-hidden="true">↗</span>
+          </a>
+        </article>
+      </div>
+    </section>
+
+    <footer class="page-footer">
+      <span>LinguaPlay</span>
+      <p>Small steps, better English.</p>
+    </footer>
+  </main>
+</div>

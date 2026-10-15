@@ -1,0 +1,518 @@
+
+<div class="game-container">
+
+  <h1>Good Words</h1>
+
+  <p class="subtitle">
+    Find the word that matches the definition.
+  </p>
+
+  @if (timeUp) {
+
+    <!-- GAME RESULT SCREEN -->
+    <section class="game-result">
+
+      <div class="result-icon">🏆</div>
+
+      <h2>Time's Up!</h2>
+
+      <p class="result-description">
+        Great effort! Here's your result.
+      </p>
+
+      <div class="result-stats">
+
+        <div class="result-card">
+          <span class="result-label">Total Score</span>
+          <strong class="result-value">{{ score }}</strong>
+        </div>
+
+        <div class="result-card">
+          <span class="result-label">Words Found</span>
+          <strong class="result-value">{{ wordsFound }}</strong>
+        </div>
+
+        <div class="result-card">
+          <span class="result-label">Game Duration</span>
+          <strong class="result-value">02:00</strong>
+        </div>
+
+      </div>
+
+      @if (sessionSaving) {
+        <p class="save-status">Saving your result...</p>
+      } @else if (sessionSaved) {
+        <p class="save-status">Your result has been saved!</p>
+      } @else {
+        <p class="save-status">
+          Your result could not be confirmed as saved.
+        </p>
+      }
+
+      <div class="result-actions">
+
+        <button
+          class="next-button"
+          (click)="restartGame()"
+        >
+          Play Again
+        </button>
+
+        <button
+          class="clear-button"
+          routerLink="/"
+        >
+          Back to Home
+        </button>
+
+      </div>
+
+    </section>
+
+  } @else if (currentRound) {
+
+    <!-- TIMER -->
+    <div
+      class="timer"
+      [class.timer-warning]="timeLeft <= 20"
+    >
+      <span class="timer-icon">⏱</span>
+      <span>{{ formattedTime }}</span>
+    </div>
+
+    <!-- SCORE -->
+    <div class="score-display">
+      <span>⭐</span>
+      <span>Score: {{ score }}</span>
+    </div>
+
+    <!-- DEFINITION -->
+    <div class="definition-card">
+      <p class="definition">
+        {{ currentRound.definition }}
+      </p>
+    </div>
+
+    <!-- WORD PROGRESS -->
+    <div class="word-progress">
+
+      @for (
+        letter of currentRound.word.split('');
+        track $index
+      ) {
+
+        <div
+          class="word-slot"
+
+          [class.correct]="
+            selectedCells.length > $index &&
+            currentRound.board[
+              selectedCells[$index].row
+            ][
+              selectedCells[$index].col
+            ].toUpperCase() === letter.toUpperCase()
+          "
+
+          [class.wrong]="
+            selectedCells.length > $index &&
+            currentRound.board[
+              selectedCells[$index].row
+            ][
+              selectedCells[$index].col
+            ].toUpperCase() !== letter.toUpperCase()
+          "
+        >
+
+          @if (selectedCells.length > $index) {
+            {{
+              currentRound.board[
+                selectedCells[$index].row
+              ][
+                selectedCells[$index].col
+              ]
+            }}
+          } @else {
+            _
+          }
+
+        </div>
+
+      }
+
+    </div>
+
+    <!-- GAME STATUS -->
+    @if (gameStatus === 'correct') {
+
+      <div class="feedback success">
+        Correct! Well done!
+      </div>
+
+      <button
+        class="next-button"
+        (click)="loadNextRound()"
+      >
+        Next Word →
+      </button>
+
+    }
+
+    @if (gameStatus === 'wrong') {
+
+      <div class="feedback error">
+        Not quite! Try again.
+      </div>
+
+    }
+
+    <!-- LETTER BOARD -->
+    <div class="board">
+
+      @for (
+        row of currentRound.board;
+        track $index;
+        let rowIndex = $index
+      ) {
+
+        <div class="board-row">
+
+          @for (
+            letter of row;
+            track $index;
+            let colIndex = $index
+          ) {
+
+            <button
+              class="letter-cell"
+
+              [class.available]="
+                isAvailableCell(rowIndex, colIndex)
+              "
+
+              [class.unavailable]="
+                selectedCells.length > 0 &&
+                !isSelected(rowIndex, colIndex) &&
+                !isAvailableCell(rowIndex, colIndex)
+              "
+
+              [class.selected-correct]="
+                getCellStatus(rowIndex, colIndex) === 'correct'
+              "
+
+              [class.selected-wrong]="
+                getCellStatus(rowIndex, colIndex) === 'wrong'
+              "
+
+              [disabled]="
+                gameStatus === 'correct' ||
+                timeUp ||
+                (
+                  selectedCells.length > 0 &&
+                  !isSelected(rowIndex, colIndex) &&
+                  !isAvailableCell(rowIndex, colIndex)
+                )
+              "
+
+              (click)="selectCell(rowIndex, colIndex)"
+            >
+              {{ letter }}
+            </button>
+
+          }
+
+        </div>
+
+      }
+
+    </div>
+
+    <!-- ACTION BUTTONS -->
+    @if (gameStatus !== 'correct' && !timeUp) {
+
+      <button
+        class="check-button"
+        (click)="checkWord()"
+        [disabled]="currentWord.length === 0"
+      >
+        Check Word
+      </button>
+
+      <button
+        class="clear-button"
+        (click)="resetSelection()"
+        [disabled]="selectedCells.length === 0"
+      >
+        Clear
+      </button>
+
+    }
+
+  } @else {
+
+    <!-- LOADING -->
+    <div class="loading">
+      Loading...
+    </div>
+
+  }
+
+</div>
+
+<div class="game-container">
+
+  <h1>Good Words</h1>
+
+  <p class="subtitle">
+    Find the word that matches the definition.
+  </p>
+
+  @if (timeUp) {
+
+    <!-- GAME RESULT SCREEN -->
+    <section class="game-result">
+
+      <div class="result-icon">🏆</div>
+
+      <h2>Time's Up!</h2>
+
+      <p class="result-description">
+        Great effort! Here's your result.
+      </p>
+
+      <div class="result-stats">
+
+        <div class="result-card">
+          <span class="result-label">Total Score</span>
+          <strong class="result-value">{{ score }}</strong>
+        </div>
+
+        <div class="result-card">
+          <span class="result-label">Words Found</span>
+          <strong class="result-value">{{ wordsFound }}</strong>
+        </div>
+
+        <div class="result-card">
+          <span class="result-label">Game Duration</span>
+          <strong class="result-value">02:00</strong>
+        </div>
+
+      </div>
+
+      @if (sessionSaving) {
+        <p class="save-status">Saving your result...</p>
+      } @else if (sessionSaved) {
+        <p class="save-status">Your result has been saved!</p>
+      } @else {
+        <p class="save-status">
+          Your result could not be confirmed as saved.
+        </p>
+      }
+
+      <div class="result-actions">
+
+        <button
+          class="next-button"
+          (click)="restartGame()"
+        >
+          Play Again
+        </button>
+
+        <button
+          class="clear-button"
+          routerLink="/"
+        >
+          Back to Home
+        </button>
+
+      </div>
+
+    </section>
+
+  } @else if (currentRound) {
+
+    <!-- TIMER -->
+    <div
+      class="timer"
+      [class.timer-warning]="timeLeft <= 20"
+    >
+      <span class="timer-icon">⏱</span>
+      <span>{{ formattedTime }}</span>
+    </div>
+
+    <!-- SCORE -->
+    <div class="score-display">
+      <span>⭐</span>
+      <span>Score: {{ score }}</span>
+    </div>
+
+    <!-- DEFINITION -->
+    <div class="definition-card">
+      <p class="definition">
+        {{ currentRound.definition }}
+      </p>
+    </div>
+
+    <!-- WORD PROGRESS -->
+    <div class="word-progress">
+
+      @for (
+        letter of currentRound.word.split('');
+        track $index
+      ) {
+
+        <div
+          class="word-slot"
+
+          [class.correct]="
+            selectedCells.length > $index &&
+            currentRound.board[
+              selectedCells[$index].row
+            ][
+              selectedCells[$index].col
+            ].toUpperCase() === letter.toUpperCase()
+          "
+
+          [class.wrong]="
+            selectedCells.length > $index &&
+            currentRound.board[
+              selectedCells[$index].row
+            ][
+              selectedCells[$index].col
+            ].toUpperCase() !== letter.toUpperCase()
+          "
+        >
+
+          @if (selectedCells.length > $index) {
+            {{
+              currentRound.board[
+                selectedCells[$index].row
+              ][
+                selectedCells[$index].col
+              ]
+            }}
+          } @else {
+            _
+          }
+
+        </div>
+
+      }
+
+    </div>
+
+    <!-- GAME STATUS -->
+    @if (gameStatus === 'correct') {
+
+      <div class="feedback success">
+        Correct! Well done!
+      </div>
+
+      <button
+        class="next-button"
+        (click)="loadNextRound()"
+      >
+        Next Word →
+      </button>
+
+    }
+
+    @if (gameStatus === 'wrong') {
+
+      <div class="feedback error">
+        Not quite! Try again.
+      </div>
+
+    }
+
+    <!-- LETTER BOARD -->
+    <div class="board">
+
+      @for (
+        row of currentRound.board;
+        track $index;
+        let rowIndex = $index
+      ) {
+
+        <div class="board-row">
+
+          @for (
+            letter of row;
+            track $index;
+            let colIndex = $index
+          ) {
+
+            <button
+              class="letter-cell"
+
+              [class.available]="
+                isAvailableCell(rowIndex, colIndex)
+              "
+
+              [class.unavailable]="
+                selectedCells.length > 0 &&
+                !isSelected(rowIndex, colIndex) &&
+                !isAvailableCell(rowIndex, colIndex)
+              "
+
+              [class.selected-correct]="
+                getCellStatus(rowIndex, colIndex) === 'correct'
+              "
+
+              [class.selected-wrong]="
+                getCellStatus(rowIndex, colIndex) === 'wrong'
+              "
+
+              [disabled]="
+                gameStatus === 'correct' ||
+                timeUp ||
+                (
+                  selectedCells.length > 0 &&
+                  !isSelected(rowIndex, colIndex) &&
+                  !isAvailableCell(rowIndex, colIndex)
+                )
+              "
+
+              (click)="selectCell(rowIndex, colIndex)"
+            >
+              {{ letter }}
+            </button>
+
+          }
+
+        </div>
+
+      }
+
+    </div>
+
+    <!-- ACTION BUTTONS -->
+    @if (gameStatus !== 'correct' && !timeUp) {
+
+      <button
+        class="check-button"
+        (click)="checkWord()"
+        [disabled]="currentWord.length === 0"
+      >
+        Check Word
+      </button>
+
+      <button
+        class="clear-button"
+        (click)="resetSelection()"
+        [disabled]="selectedCells.length === 0"
+      >
+        Clear
+      </button>
+
+    }
+
+  } @else {
+
+    <!-- LOADING -->
+    <div class="loading">
+      Loading...
+    </div>
+
+  }
+
+</div>

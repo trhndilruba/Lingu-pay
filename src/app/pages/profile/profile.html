@@ -1,0 +1,105 @@
+
+<main class="profile-page">
+  <header class="page-header">
+    <a routerLink="/" class="back-link">← Ana sayfa</a>
+    <h1>Profilim</h1>
+    <p>Öğrenme ilerlemeni ve oyun geçmişini takip et.</p>
+  </header>
+
+  @if (isLoading) {
+    <section class="status-card">
+      <p>Profil bilgileri yükleniyor...</p>
+    </section>
+  } @else if (!email) {
+    <section class="status-card">
+      <h2>Giriş yapmalısın</h2>
+      <p>Profilini ve oyun geçmişini görmek için oturum aç.</p>
+      <a routerLink="/login" class="primary-button">
+        Giriş yap
+      </a>
+    </section>
+  } @else {
+    <section class="profile-card">
+      <div class="avatar">
+        {{ displayName.charAt(0).toUpperCase() }}
+      </div>
+
+      <div class="user-info">
+        <h2>{{ displayName }}</h2>
+        <p>{{ email }}</p>
+        <span class="level-badge">Seviye {{ level }}</span>
+      </div>
+    </section>
+
+    <section class="stats-grid">
+      <article class="stat-card">
+        <span class="stat-label">Toplam XP</span>
+        <strong>{{ totalXp }}</strong>
+        <span class="stat-description">Kayıtlı deneyim puanı</span>
+      </article>
+
+      <article class="stat-card">
+        <span class="stat-label">Oynanan oyun</span>
+        <strong>{{ totalGames }}</strong>
+        <span class="stat-description">Kaydedilen oturumlar</span>
+      </article>
+
+      <article class="stat-card">
+        <span class="stat-label">Doğru cevap</span>
+        <strong>{{ totalCorrectAnswers }}</strong>
+        <span class="stat-description">Tüm kayıtlı oturumlar</span>
+      </article>
+    </section>
+
+    <section class="history-section">
+      <div class="section-heading">
+        <div>
+          <h2>Oyun geçmişi</h2>
+          <p>Son oyun sonuçların</p>
+        </div>
+      </div>
+
+      @if (sessions.length === 0) {
+        <div class="empty-state">
+          <h3>Henüz oyun kaydın yok</h3>
+          <p>Bir oyun oynadığında sonuçların burada görünecek.</p>
+
+          <a routerLink="/good-words" class="primary-button">
+            İlk oyununu oyna
+          </a>
+        </div>
+      } @else {
+        <div class="session-list">
+          @for (session of sessions; track session.id) {
+            <article class="session-card">
+              <div class="session-main">
+                <h3>{{ getGameName(session.gameType) }}</h3>
+
+                <p>
+                  {{ session.correctAnswers }} doğru cevap
+                </p>
+
+                @if (session.playedAt) {
+                  <time>
+                    {{ session.playedAt | date:'dd.MM.yyyy HH:mm' }}
+                  </time>
+                }
+              </div>
+
+              <div class="session-result">
+                <strong>{{ session.score }} puan</strong>
+                <span>
+                  {{ formatDuration(session.durationSeconds) }}
+                </span>
+              </div>
+            </article>
+          }
+        </div>
+      }
+    </section>
+
+    @if (errorMessage) {
+      <p class="error-message">{{ errorMessage }}</p>
+    }
+  }
+</main>

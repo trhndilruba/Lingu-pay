@@ -1,0 +1,49 @@
+
+<div class="auth-page">
+  <section class="auth-card">
+    <a routerLink="/" class="brand">LinguaPlay</a>
+
+    <p class="eyebrow">TEKRAR HOŞ GELDİN</p>
+    <h1>Giriş yap</h1>
+    <p class="subtitle">
+      Öğrenmeye kaldığın yerden devam et.
+    </p>
+
+    <form (ngSubmit)="login()" #loginForm="ngForm">
+      <label for="email">E-posta</label>
+      <input
+        id="email"
+        name="email"
+        type="email"
+        [(ngModel)]="email"
+        placeholder="ornek@mail.com"
+        autocomplete="email"
+        required
+      />
+
+      <label for="password">Şifre</label>
+      <input
+        id="password"
+        name="password"
+        type="password"
+        [(ngModel)]="password"
+        placeholder="Şifreni gir"
+        autocomplete="current-password"
+        required
+      />
+
+      @if (errorMessage) {
+        <p class="error-message" role="alert">{{ errorMessage }}</p>
+      }
+
+      <button type="submit" [disabled]="loading || loginForm.invalid">
+        {{ loading ? 'Giriş yapılıyor...' : 'Giriş yap' }}
+      </button>
+    </form>
+
+    <p class="switch-auth">
+      Henüz hesabın yok mu?
+      <a routerLink="/register">Kayıt ol</a>
+    </p>
+  </section>
+</div>
