@@ -1,3 +1,4 @@
+
 import {
   Component,
   OnInit,
@@ -5,23 +6,19 @@ import {
   ChangeDetectorRef
 } from '@angular/core';
 
-import { GameSessionService } from '../../core/game-session.service';
-import { HttpClient } from '@angular/common/http';
-
-import {
-  WordItem,
-  GameRound
-} from '../../models/game.models';
-
-import {
-  BoardGeneratorService
-} from '../../services/board-generator.service';
-
-import {
-  DictionaryService
-} from '../../services/dictionary.service';
-
 import { RouterLink } from '@angular/router';
+
+import { GameSessionService } from '../../core/game-session.service';
+import {
+  GameContentService,
+  WordItem
+} from '../../core/game-content.service';
+
+import { GameRound } from '../../models/game.models';
+
+import { BoardGeneratorService } from '../../services/board-generator.service';
+import { DictionaryService } from '../../services/dictionary.service';
+
 /* =========================
    CELL MODEL
    ========================= */
@@ -30,7 +27,6 @@ interface Cell {
   row: number;
   col: number;
 }
-
 
 /* =========================
    COMPONENT
@@ -51,24 +47,19 @@ export class GoodWords implements OnInit, OnDestroy {
 
   words: WordItem[] = [];
 
-
   /* =========================
      CURRENT ROUND
      ========================= */
 
   currentRound: GameRound | null = null;
-
   currentWordIndex = 0;
-
 
   /* =========================
      PLAYER SELECTION
      ========================= */
 
   selectedCells: Cell[] = [];
-
   currentWord = '';
-
 
   /* =========================
      GAME STATUS
@@ -82,11 +73,8 @@ export class GoodWords implements OnInit, OnDestroy {
      ========================= */
 
   timeLeft = 120;
-
   timerId: ReturnType<typeof setInterval> | null = null;
-
   timeUp = false;
-
 
   /* =========================
      SCORE
@@ -99,115 +87,83 @@ export class GoodWords implements OnInit, OnDestroy {
   private sessionSaving = false;
   private sessionStartedAt = 0;
 
-
   /* =========================
      CONSTRUCTOR
      ========================= */
 
   constructor(
-    private http: HttpClient,
     private boardGenerator: BoardGeneratorService,
     private dictionaryService: DictionaryService,
     private cdr: ChangeDetectorRef,
-    private gameSessionService: GameSessionService
+    private gameSessionService: GameSessionService,
+    private gameContentService: GameContentService
   ) {}
-
 
   /* =========================
      COMPONENT INIT
      ========================= */
 
   ngOnInit(): void {
-    this.loadQuestions();
+    void this.loadQuestions();
   }
-
 
   /* =========================
-     LOAD QUESTIONS
+     LOAD QUESTIONS FROM FIRESTORE
      ========================= */
 
-  loadQuestions(): void {
+  async loadQuestions(): Promise<void> {
+    try {
+      const data = await this.gameContentService.getWords();
 
-    this.http
-      .get<WordItem[]>('/words.json')
-      .subscribe({
+      this.words = data;
 
-        next: (data) => {
+      if (this.words.length > 0) {
+        this.loadRound(0);
+      } else {
+        console.warn(
+          'Firestore words koleksiyonunda kelime bulunamadı.'
+        );
+      }
 
-          this.words = data;
-
-          if (this.words.length > 0) {
-            this.loadRound(0);
-          }
-
-        },
-
-        error: (error) => {
-
-          console.error(
-            'Questions could not be loaded:',
-            error
-          );
-
-        }
-
-      });
+      this.cdr.markForCheck();
+    } catch (error) {
+      console.error(
+        'Kelimeler Firestore üzerinden yüklenemedi:',
+        error
+      );
+    }
   }
-
 
   /* =========================
      LOAD ROUND
      ========================= */
 
   loadRound(index: number): void {
-
-    console.log(
-      '5 - loadRound started:',
-      index
-    );
+    console.log('5 - loadRound started:', index);
 
     const wordItem = this.words[index];
 
-    console.log(
-      '6 - selected word:',
-      wordItem
-    );
+    console.log('6 - selected word:', wordItem);
 
     if (!wordItem) {
       return;
     }
 
+    /* Generate the letter board. */
 
-    /* =========================
-       GENERATE BOARD
-       ========================= */
-
-    const board =
-      this.boardGenerator.generateBoard(
-        wordItem.word
-      );
-
-    console.log(
-      '7 - generated board:',
-      board
+    const board = this.boardGenerator.generateBoard(
+      wordItem.word
     );
 
+    console.log('7 - generated board:', board);
 
-    /* =========================
-       GET DEFINITION
-       ========================= */
+    /* Get the word definition. */
 
     this.dictionaryService
       .getDefinition(wordItem.word)
       .subscribe({
-
         next: (definition) => {
-
-          console.log(
-            '8 - definition:',
-            definition
-          );
-
+          console.log('8 - definition:', definition);
 
           this.currentRound = {
             word: wordItem.word,
@@ -215,87 +171,55 @@ export class GoodWords implements OnInit, OnDestroy {
             board: board
           };
 
-
           this.currentWordIndex = index;
-
-
-          /* =========================
-             RESET PREVIOUS SELECTION
-             ========================= */
 
           this.resetSelection();
 
-
-          /* =========================
-             START TIMER
-             ========================= */
+          /* Start the timer only once. */
 
           if (
-              this.timerId === null &&
-              !this.timeUp &&
-              !this.sessionSaved &&
-              !this.sessionSaving
-            ) {
-              this.startTimer();
-            }  
-
+            this.timerId === null &&
+            !this.timeUp &&
+            !this.sessionSaved &&
+            !this.sessionSaving
+          ) {
+            this.startTimer();
+          }
 
           this.cdr.markForCheck();
-
 
           console.log(
             '9 - currentRound:',
             this.currentRound
           );
-
         },
 
         error: (error) => {
-
-          console.error(
-            'Dictionary API error:',
-            error
-          );
-
+          console.error('Dictionary API error:', error);
         }
-
       });
   }
-
 
   /* =========================
      NEXT ROUND
      ========================= */
 
   loadNextRound(): void {
-
     if (this.words.length === 0) {
       return;
     }
 
-
     const nextIndex =
-      (this.currentWordIndex + 1) %
-      this.words.length;
-
+      (this.currentWordIndex + 1) % this.words.length;
 
     this.loadRound(nextIndex);
   }
-
 
   /* =========================
      SELECT CELL
      ========================= */
 
-  selectCell(
-    row: number,
-    col: number
-  ): void {
-
-    /* =========================
-       BASIC CONTROLS
-       ========================= */
-
+  selectCell(row: number, col: number): void {
     if (
       !this.currentRound ||
       this.timeUp ||
@@ -304,36 +228,18 @@ export class GoodWords implements OnInit, OnDestroy {
       return;
     }
 
+    const cell: Cell = { row, col };
 
-    const cell: Cell = {
-      row,
-      col
-    };
-
-
-    /* =========================
-       CLICK LAST SELECTED CELL
-       =========================
-
-       Eğer kullanıcı son seçtiği
-       hücreye tekrar tıklarsa,
-       son harfi geri alıyoruz.
-    */
+    /* Clicking the last selected cell removes it. */
 
     if (this.isSelected(row, col)) {
-
       this.removeLastSelectedCell(cell);
-
       return;
     }
 
-
-    /* =========================
-       FIRST LETTER
-       ========================= */
+    /* Select the first letter. */
 
     if (this.selectedCells.length === 0) {
-
       this.selectedCells.push(cell);
 
       this.currentWord +=
@@ -342,64 +248,35 @@ export class GoodWords implements OnInit, OnDestroy {
       this.gameStatus = 'idle';
 
       this.cdr.markForCheck();
-
       return;
     }
 
-
-    /* =========================
-       LAST SELECTED CELL
-       ========================= */
+    /* Check the new cell against the last selected cell. */
 
     const lastCell =
-      this.selectedCells[
-        this.selectedCells.length - 1
-      ];
-
-
-    /* =========================
-       ADJACENCY CHECK
-       ========================= */
+      this.selectedCells[this.selectedCells.length - 1];
 
     if (!this.isAdjacent(lastCell, cell)) {
-
       return;
     }
 
-
-    /* =========================
-       ADD NEW CELL
-       ========================= */
+    /* Add the selected letter. */
 
     this.selectedCells.push(cell);
 
     this.currentWord +=
       this.currentRound.board[row][col];
 
-
-    /*
-      Yanlış bir harf seçilse bile
-      oyunu durdurmuyoruz.
-
-      Çünkü kullanıcıya kırmızı/yeşil
-      görsel ipucu vermek istiyoruz.
-    */
-
     this.gameStatus = 'idle';
 
     this.cdr.markForCheck();
   }
 
-
   /* =========================
      CHECK SELECTED CELL
      ========================= */
 
-  isSelected(
-    row: number,
-    col: number
-  ): boolean {
-
+  isSelected(row: number, col: number): boolean {
     return this.selectedCells.some(
       cell =>
         cell.row === row &&
@@ -407,16 +284,11 @@ export class GoodWords implements OnInit, OnDestroy {
     );
   }
 
-
   /* =========================
      AVAILABLE CELL
      ========================= */
 
-  isAvailableCell(
-    row: number,
-    col: number
-  ): boolean {
-
+  isAvailableCell(row: number, col: number): boolean {
     if (
       !this.currentRound ||
       this.timeUp ||
@@ -426,144 +298,75 @@ export class GoodWords implements OnInit, OnDestroy {
       return false;
     }
 
-
-    /* =========================
-       FIRST CELL
-       ========================= */
-
     if (this.selectedCells.length === 0) {
       return true;
     }
 
-
-    /* =========================
-       LAST CELL
-       ========================= */
-
     const lastCell =
-      this.selectedCells[
-        this.selectedCells.length - 1
-      ];
+      this.selectedCells[this.selectedCells.length - 1];
 
-
-    return this.isAdjacent(
-      lastCell,
-      {
-        row,
-        col
-      }
-    );
+    return this.isAdjacent(lastCell, { row, col });
   }
-
 
   /* =========================
      REMOVE LAST CELL
      ========================= */
 
-  removeLastSelectedCell(
-    cell: Cell
-  ): void {
-
+  removeLastSelectedCell(cell: Cell): void {
     if (this.selectedCells.length === 0) {
       return;
     }
 
-
     const lastCell =
-      this.selectedCells[
-        this.selectedCells.length - 1
-      ];
+      this.selectedCells[this.selectedCells.length - 1];
 
-
-    /*
-      Sadece son seçilen hücre
-      geri alınabilir.
-    */
+    /* Only the last selected cell can be removed. */
 
     if (
       lastCell.row === cell.row &&
       lastCell.col === cell.col
     ) {
-
       this.selectedCells.pop();
 
-
-      this.currentWord =
-        this.currentWord.slice(0, -1);
-
+      this.currentWord = this.currentWord.slice(0, -1);
 
       this.gameStatus = 'idle';
-
 
       this.cdr.markForCheck();
     }
   }
 
-
   /* =========================
      CHECK ADJACENCY
-     =========================
+     ========================= */
 
-     Yatay
-     Dikey
-     Çapraz
+  isAdjacent(first: Cell, second: Cell): boolean {
+    const rowDifference = Math.abs(
+      first.row - second.row
+    );
 
-     hareketlere izin verir.
-  */
-
-  isAdjacent(
-    first: Cell,
-    second: Cell
-  ): boolean {
-
-    const rowDifference =
-      Math.abs(
-        first.row - second.row
-      );
-
-    const colDifference =
-      Math.abs(
-        first.col - second.col
-      );
-
+    const colDifference = Math.abs(
+      first.col - second.col
+    );
 
     return (
       rowDifference <= 1 &&
       colDifference <= 1 &&
-      (
-        rowDifference +
-        colDifference > 0
-      )
+      rowDifference + colDifference > 0
     );
   }
 
-
   /* =========================
      CELL STATUS
-     =========================
-
-     Bu metod tahtadaki seçilen
-     harfin doğru mu yanlış mı
-     olduğunu belirler.
-
-     correct → yeşil
-     wrong   → kırmızı
-     none    → normal
-  */
+     ========================= */
 
   getCellStatus(
     row: number,
     col: number
   ): 'correct' | 'wrong' | 'none' {
-
     if (!this.currentRound) {
       return 'none';
     }
-
-
-    /* =========================
-       FIND SELECTED CELL INDEX
-       ========================= */
 
     const selectedIndex =
       this.selectedCells.findIndex(
@@ -572,223 +375,166 @@ export class GoodWords implements OnInit, OnDestroy {
           cell.col === col
       );
 
-
-    /*
-      Hücre seçilmediyse
-      herhangi bir renk verme.
-    */
-
     if (selectedIndex === -1) {
       return 'none';
     }
 
-
-    /* =========================
-       SELECTED LETTER
-       ========================= */
-
     const selectedLetter =
-      this.currentRound.board[row][col]
-        .toUpperCase();
-
-
-    /* =========================
-       EXPECTED LETTER
-       =========================
-
-       Örneğin:
-
-       APPLE
-
-       0 → A
-       1 → P
-       2 → P
-       3 → L
-       4 → E
-    */
+      this.currentRound.board[row][col].toUpperCase();
 
     const expectedLetter =
-      this.currentRound.word[selectedIndex]
-        .toUpperCase();
+      this.currentRound.word[selectedIndex].toUpperCase();
 
-
-    /* =========================
-       COMPARE
-       ========================= */
-
-    if (
-      selectedLetter ===
-      expectedLetter
-    ) {
-
+    if (selectedLetter === expectedLetter) {
       return 'correct';
     }
 
-
     return 'wrong';
   }
-
 
   /* =========================
      CHECK WORD
      ========================= */
 
-  
-checkWord(): void {
-  if (
-    !this.currentRound ||
-    this.timeUp ||
-    this.gameStatus === 'correct' ||
-    this.currentWord.length === 0
-  ) {
-    return;
+  checkWord(): void {
+    if (
+      !this.currentRound ||
+      this.timeUp ||
+      this.gameStatus === 'correct' ||
+      this.currentWord.length === 0
+    ) {
+      return;
+    }
+
+    if (
+      this.currentWord.toUpperCase() ===
+      this.currentRound.word.toUpperCase()
+    ) {
+      const earnedPoints = 100 + (this.timeLeft * 2);
+
+      this.score += earnedPoints;
+      this.wordsFound++;
+      this.gameStatus = 'correct';
+    } else {
+      this.gameStatus = 'wrong';
+    }
+
+    this.cdr.markForCheck();
   }
-
-  if (
-    this.currentWord.toUpperCase() ===
-    this.currentRound.word.toUpperCase()
-  ) {
-    const earnedPoints = 100 + (this.timeLeft * 2);
-
-    this.score += earnedPoints;
-    this.wordsFound++;
-    this.gameStatus = 'correct';
-  } else {
-    this.gameStatus = 'wrong';
-  }
-
-  this.cdr.markForCheck();
-}
-
-
 
   /* =========================
      RESET SELECTION
      ========================= */
 
   resetSelection(): void {
-
     this.selectedCells = [];
-
     this.currentWord = '';
-
     this.gameStatus = 'idle';
 
     this.cdr.markForCheck();
   }
 
-
   /* =========================
      START TIMER
      ========================= */
 
-  
-startTimer(): void {
-  // Zamanlayıcı zaten çalışıyorsa yeniden başlatma.
-  if (
-    this.timerId !== null ||
-    this.timeUp ||
-    this.sessionSaved ||
-    this.sessionSaving
-  ) {
-    return;
-  }
-
-  // Oyun başlangıç zamanını yalnızca bir kez kaydet.
-  if (this.sessionStartedAt === 0) {
-    this.sessionStartedAt = Date.now();
-    this.timeLeft = 120;
-  }
-
-  this.timerId = setInterval(() => {
-    if (this.timeLeft > 0) {
-      this.timeLeft--;
+  startTimer(): void {
+    if (
+      this.timerId !== null ||
+      this.timeUp ||
+      this.sessionSaved ||
+      this.sessionSaving
+    ) {
+      return;
     }
 
-    if (this.timeLeft <= 0) {
-      this.timeLeft = 0;
-      this.timeUp = true;
+    /* Record the start time only once. */
 
-      this.stopTimer();
-      this.resetSelection();
-
-      // Sonucu yalnızca bir kez kaydet.
-      void this.saveSessionOnce();
+    if (this.sessionStartedAt === 0) {
+      this.sessionStartedAt = Date.now();
+      this.timeLeft = 120;
     }
 
-    this.cdr.markForCheck();
-  }, 1000);
-}
+    this.timerId = setInterval(() => {
+      if (this.timeLeft > 0) {
+        this.timeLeft--;
+      }
 
+      if (this.timeLeft <= 0) {
+        this.timeLeft = 0;
+        this.timeUp = true;
 
+        this.stopTimer();
+        this.resetSelection();
+
+        /* Save the result once the game ends. */
+
+        void this.saveSessionOnce();
+      }
+
+      this.cdr.markForCheck();
+    }, 1000);
+  }
 
   /* =========================
      STOP TIMER
      ========================= */
 
   stopTimer(): void {
-
     if (this.timerId !== null) {
-
-      clearInterval(
-        this.timerId
-      );
-
+      clearInterval(this.timerId);
       this.timerId = null;
     }
   }
 
-  
+  /* =========================
+     SAVE GAME SESSION
+     ========================= */
 
-  
-private async saveSessionOnce(): Promise<void> {
-  if (
-    this.sessionSaved ||
-    this.sessionSaving ||
-    this.sessionStartedAt === 0
-  ) {
-    return;
+  private async saveSessionOnce(): Promise<void> {
+    if (
+      this.sessionSaved ||
+      this.sessionSaving ||
+      this.sessionStartedAt === 0
+    ) {
+      return;
+    }
+
+    this.sessionSaving = true;
+
+    try {
+      await this.gameSessionService.saveGameResult({
+        gameType: 'good-words',
+        score: this.score,
+        correctAnswers: this.wordsFound,
+        durationSeconds: Math.floor(
+          (Date.now() - this.sessionStartedAt) / 1000
+        )
+      });
+
+      this.sessionSaved = true;
+
+      console.log(
+        'Good Words sonucu Firestore’a kaydedildi.'
+      );
+    } catch (error) {
+      console.error(
+        'Oyun sonucu kaydedilemedi:',
+        error
+      );
+    } finally {
+      this.sessionSaving = false;
+      this.cdr.markForCheck();
+    }
   }
-
-  this.sessionSaving = true;
-
-  try {
-    await this.gameSessionService.saveGameResult({
-      gameType: 'good-words',
-      score: this.score,
-      correctAnswers: this.wordsFound,
-      durationSeconds: Math.floor(
-        (Date.now() - this.sessionStartedAt) / 1000
-      )
-    });
-
-    this.sessionSaved = true;
-    console.log('Good Words sonucu Firestore’a kaydedildi.');
-  } catch (error) {
-    console.error('Oyun sonucu kaydedilemedi:', error);
-  } finally {
-    this.sessionSaving = false;
-    this.cdr.markForCheck();
-  }
-}
-
-
 
   /* =========================
      FORMATTED TIME
      ========================= */
 
   get formattedTime(): string {
-
-    const minutes =
-      Math.floor(
-        this.timeLeft / 60
-      );
-
-
-    const seconds =
-      this.timeLeft % 60;
-
+    const minutes = Math.floor(this.timeLeft / 60);
+    const seconds = this.timeLeft % 60;
 
     return (
       `${String(minutes).padStart(2, '0')}:` +
@@ -796,42 +542,45 @@ private async saveSessionOnce(): Promise<void> {
     );
   }
 
+  /* =========================
+     RESTART GAME
+     ========================= */
 
+  restartGame(): void {
+    this.stopTimer();
 
-  
-restartGame(): void {
-  this.stopTimer();
+    this.timeLeft = 120;
+    this.timeUp = false;
 
-  this.timeLeft = 120;
-  this.timeUp = false;
+    this.score = 0;
+    this.wordsFound = 0;
 
-  this.score = 0;
-  this.wordsFound = 0;
+    this.sessionSaved = false;
+    this.sessionSaving = false;
+    this.sessionStartedAt = 0;
 
-  this.sessionSaved = false;
-  this.sessionSaving = false;
-  this.sessionStartedAt = 0;
+    this.currentWordIndex = 0;
+    this.currentRound = null;
 
-  this.currentWordIndex = 0;
-  this.currentRound = null;
+    this.selectedCells = [];
+    this.currentWord = '';
+    this.gameStatus = 'idle';
+    this.showFeedback = false;
 
-  this.selectedCells = [];
-  this.currentWord = '';
-  this.gameStatus = 'idle';
-  this.showFeedback = false;
+    if (this.words.length > 0) {
+      this.loadRound(0);
+    } else {
+      void this.loadQuestions();
+    }
 
-  if (this.words.length > 0) {
-    this.loadRound(0);
-  } else {
-    this.loadQuestions();
+    this.cdr.markForCheck();
   }
 
-  this.cdr.markForCheck();
-}
-  
-  ngOnDestroy(): void {
+  /* =========================
+     COMPONENT DESTROY
+     ========================= */
 
+  ngOnDestroy(): void {
     this.stopTimer();
   }
-
 }
